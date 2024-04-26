@@ -4,6 +4,18 @@
 #include <windows.h>
 #include <chrono>
 #include <SFML/Audio.hpp>
+#include "SoundManager.h"
+
+enum ePageState
+{
+	PAGE_STATE_DEFAULT,
+	PAGE_STATE_MAIN_MENU,
+	PAGE_STATE_PLAY,
+	PAGE_STATE_SETTINGS,
+	PAGE_STATE_RANKING,
+	PAGE_STATE_ABOUT,
+	PAGE_STATE_EXIT
+};
 
 typedef struct MainMenu
 {
@@ -17,6 +29,13 @@ typedef struct MainMenu
 	std::chrono::time_point<std::chrono::system_clock> displayMillisecondsStartTime;
 }TMainMenu;
 
+typedef struct Options
+{
+	static const int optionTextMaxItems = 3;
+	sf::Text optionsText[optionTextMaxItems];
+	uint16_t selectedOptionIndex;
+}TOptions;
+
 class CMainMenu
 {
 public:
@@ -24,14 +43,24 @@ public:
 	~CMainMenu() = default;
 
 	uint16_t GetSelectedItemIndex();
+	uint16_t GetSelectedPageIndex();
 	void SetSelectedItemIndex(uint16_t ItemIndex);
 
 	void MoveDirection(uint16_t Direction);
-	void MakeWindow(sf::RenderWindow& window);
-	std::vector<std::string> menuItemsVec;
+	void MakeWindow(sf::RenderWindow& window, uint16_t PageIndex);
 	void GetDisplayedTimeHandle();
+	void DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIndex, float Width, float Height);
+	void BuildMenu(sf::RenderWindow& window, float Width, float Height);
+
+	void BuildSettings(sf::RenderWindow& window, float Width, float Height);
+	void BuildRanking(float Width, float Height);
+	void BuildAbout(float Width, float Height);
+	void BuildBackgroundText(float Width, float Height);
 private:
 	std::unique_ptr<TMainMenu> m_pMenu = std::make_unique<TMainMenu>();
+	std::unique_ptr<TOptions> m_pOptions = std::make_unique<TOptions>();
+
+	std::vector<std::string> menuItemsVec;
 	sf::Text m_versionText;
 	sf::Text m_timeText;
 	sf::Text m_millisecondsText;
@@ -41,4 +70,10 @@ private:
 	sf::SoundBuffer m_buff;
 	sf::Sound m_sound;
 	sf::Sound m_soundTick;
+	CSoundManager* pSoundManager;
+
+private:
+	uint16_t m_pageIndex;
+	std::vector<std::string> m_optionsTextVec;
+	
 };

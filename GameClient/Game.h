@@ -1,17 +1,21 @@
 #pragma once
 #include <SFML/Window.hpp>
 #include <iostream>
+#include "SoundManager.h"
 
 class CGame
 {
 public:
-	CGame(const CGame&) = delete;
-	static CGame& Instance()
+	CGame()
 	{
-		static CGame s_Instance;
-		return s_Instance;
+		m_bState = false;
+		m_sHeight = static_cast<uint16_t>(WindowConfig::WINDOW_MAX_HEIGHT);
+		m_sWidth = static_cast<uint16_t>(WindowConfig::WINDOW_MAX_WIDTH);
 	}
-	~CGame() = default;
+	~CGame()
+	{
+
+	}
 
 	bool IsRunning();
 	void ProcessSettingsInput();
@@ -29,13 +33,6 @@ public:
 		WINDOW_MAX_HEIGHT = 1080,
 	};
 private:
-
-	CGame()
-	{
-		m_bState = false;
-		m_sHeight = static_cast<uint16_t>(WindowConfig::WINDOW_MAX_HEIGHT);
-		m_sWidth = static_cast<uint16_t>(WindowConfig::WINDOW_MAX_WIDTH);
-	}
 
 	bool m_bState;
 	uint16_t m_sHeight;

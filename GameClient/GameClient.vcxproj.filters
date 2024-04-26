@@ -22,6 +22,9 @@
     <ClCompile Include="TimeManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="TextModule.cpp">
+      <Filter>ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -41,6 +44,9 @@
     </ClInclude>
     <ClInclude Include="TimeManager.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="TextModule.h">
+      <Filter>ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

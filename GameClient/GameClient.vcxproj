@@ -146,6 +146,7 @@
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="SettingsModule.cpp" />
     <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="TextModule.cpp" />
     <ClCompile Include="TimeManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +155,7 @@
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="SettingsModule.h" />
     <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="TextModule.h" />
     <ClInclude Include="TimeManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

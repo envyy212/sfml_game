@@ -2,5 +2,6 @@
 #include "Log.h"
 int main()
 {
-	CGame::Instance().IsRunning();
+	CGame game;
+	game.IsRunning();
 }

@@ -1,32 +1,38 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: Zprostředkující adresář (x64\Debug\) obsahuje soubory sdílené z jiného projektu (Game.vcxproj, sfml_snake.vcxproj). To může způsobit nesprávné chování při čištění a opětovném sestavení.
-  Game.cpp
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(39,53): warning C4244: argument: T se převádí na float; může dojít ke ztrátě dat.
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(39,53): warning C4244:         with
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(39,53): warning C4244:         [
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(39,53): warning C4244:             T=unsigned int
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(39,53): warning C4244:         ]
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(39,33): warning C4244: argument: T se převádí na float; může dojít ke ztrátě dat.
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(39,33): warning C4244:         with
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(39,33): warning C4244:         [
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(39,33): warning C4244:             T=unsigned int
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(39,33): warning C4244:         ]
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(10,11): warning C4305: return: zkrácení z: int na: bool
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(16,11): warning C4305: return: zkrácení z: int na: bool
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(67,43): warning C4390: ; – Našel se prázdný řízený příkaz; zadali jste ho tak záměrně?
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(71,43): warning C4390: ; – Našel se prázdný řízený příkaz; zadali jste ho tak záměrně?
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(75,43): warning C4390: ; – Našel se prázdný řízený příkaz; zadali jste ho tak záměrně?
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(79,43): warning C4390: ; – Našel se prázdný řízený příkaz; zadali jste ho tak záměrně?
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(83,43): warning C4390: ; – Našel se prázdný řízený příkaz; zadali jste ho tak záměrně?
-  Log.cpp
-  main.cpp
   MainMenu.cpp
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(36,65): warning C4244: argument: double se převádí na float; může dojít ke ztrátě dat.
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(59,42): warning C4305: argument: zkrácení z: double na: float
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(59,30): warning C4305: argument: zkrácení z: double na: float
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(64,52): warning C4305: argument: zkrácení z: double na: float
-C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(64,38): warning C4305: argument: zkrácení z: double na: float
-  SettingsModule.cpp
-  SoundManager.cpp
-  TimeManager.cpp
-  Generování kódu...
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(26,57): warning C4244: argument: T se převádí na float; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(26,57): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(26,57): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(26,57): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(26,57): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(26,37): warning C4244: argument: T se převádí na float; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(26,37): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(26,37): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(26,37): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(26,37): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(114,65): warning C4244: argument: double se převádí na float; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(124,42): warning C4305: argument: zkrácení z: double na: float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(124,30): warning C4305: argument: zkrácení z: double na: float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(129,52): warning C4305: argument: zkrácení z: double na: float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(129,38): warning C4305: argument: zkrácení z: double na: float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(180,80): warning C4244: argument: T se převádí na float; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(180,80): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(180,80): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(180,80): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(180,80): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(180,60): warning C4244: argument: T se převádí na float; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(180,60): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(180,60): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(180,60): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(180,60): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(184,58): warning C4244: argument: T se převádí na float; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(184,58): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(184,58): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(184,58): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(184,58): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(184,38): warning C4244: argument: T se převádí na float; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(184,38): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(184,38): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(184,38): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(184,38): warning C4244:         ]
   GameClient.vcxproj -> C:\Users\danie\Documents\GitHub\sfml_game\x64\Debug\GameClient.exe

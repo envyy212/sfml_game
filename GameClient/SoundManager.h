@@ -1,25 +1,30 @@
 #pragma once
 #include <SFML/Audio.hpp>
+#include <unordered_map>
+
+enum eSound
+{
+	SOUND_CLOCK_TICK,
+	SOUND_MENU_CLICK,
+	SOUND_TIME_BOOM,
+};
 
 class CSoundManager
 {
 public:
 	~CSoundManager() = default;
-	CSoundManager(const CSoundManager&) = delete;
 
-	CSoundManager& Instance()
-	{
-		static CSoundManager s_Instance;
-		return s_Instance;
-	}
+	void MakeSound(float Volume);
+	void MakeSoundBuffer(uint16_t Index);
 
-	
+	void InitializeMenuMusic();
+
+	void BuildSoundNameVector();
+	CSoundManager();
+
 private:
-	sf::SoundBuffer m_buffer;
-	sf::SoundBuffer m_buff;
+	sf::SoundBuffer m_soundBuffer;
 	sf::Sound m_sound;
-	sf::Sound m_soundTick;
 
-	CSoundManager() = default;
-
+	std::vector<std::string> m_soundNameVec;
 };
