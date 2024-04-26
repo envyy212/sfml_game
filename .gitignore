@@ -1,0 +1,8 @@
+*.vsidx
+*.VC.db
+*.VC.db-shm
+*.VC.opendb
+*.ipch
+*.VC.db-wal
+*.exe
+BGM.flac

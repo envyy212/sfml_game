@@ -1,0 +1,76 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (sfml_snake.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Game.cpp
+  main.cpp
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(15,18): error C2061: syntax error: identifier 'uint16_t'
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(18,18): error C3646: 'GetWidth': unknown override specifier
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(18,27): error C2059: syntax error: ')'
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(18,29): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(19,18): error C3646: 'GetHeight': unknown override specifier
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(19,28): error C2059: syntax error: ')'
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(19,30): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(21,23): error C2061: syntax error: identifier 'uint16_t'
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(22,24): error C2061: syntax error: identifier 'uint16_t'
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(31,2): error C2653: 'sf': is not a class or namespace name
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(31,13): error C3646: 'm_Window': unknown override specifier
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(31,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(41,11): error C3646: 'm_sHeight': unknown override specifier
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(41,20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(42,11): error C3646: 'm_sWidth': unknown override specifier
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(42,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(21,41): error C2065: 'm_sWidth': undeclared identifier
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(21,52): error C2065: 'Width': undeclared identifier
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(22,43): error C2065: 'm_sHeight': undeclared identifier
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(22,55): error C2065: 'Height': undeclared identifier
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(36,3): error C2065: 'm_sHeight': undeclared identifier
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(36,27): error C2061: syntax error: identifier 'uint16_t'
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(37,3): error C2065: 'm_sWidth': undeclared identifier
+  (compiling source file '../Game/main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\Game.h(37,26): error C2061: syntax error: identifier 'uint16_t'
+  (compiling source file '../Game/main.cpp')
+  
+  Generating Code...

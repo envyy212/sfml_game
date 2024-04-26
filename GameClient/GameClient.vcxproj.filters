@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Game.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsModule.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsModule.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{1ecf2987-3623-4b4d-a28e-116a1e3a556c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ui">
+      <UniqueIdentifier>{5c0ebd10-c9cb-492d-9753-d98bef924e0c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

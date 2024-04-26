@@ -1,0 +1,8 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Game.vcxproj, sfml_snake.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  MainMenu.cpp
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\MainMenu.cpp(38,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\MainMenu.cpp(61,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\MainMenu.cpp(61,30): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\MainMenu.cpp(66,52): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Admin\source\repos\learning\sfml_snake\Game\MainMenu.cpp(66,38): warning C4305: 'argument': truncation from 'double' to 'float'
+  Game.vcxproj -> C:\Users\Admin\source\repos\learning\sfml_snake\x64\Debug\GameClient.exe
