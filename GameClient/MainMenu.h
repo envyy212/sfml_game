@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <unordered_map>
+#include <map>
 #include <windows.h>
 #include <chrono>
 #include <SFML/Audio.hpp>
@@ -36,6 +36,23 @@ typedef struct Options
 	uint16_t selectedOptionIndex;
 }TOptions;
 
+typedef struct About
+{
+	static const int optionTextAboutMaxItems = 10;
+	sf::Text textAbout[optionTextAboutMaxItems];
+}TAbout;
+
+typedef struct PlayerRanking
+{
+	uint32_t dwID;
+	std::vector<std::string> playerNameStr;
+	uint64_t llPlayerScore;
+
+	static const int rankingMaxRows = 10;
+	sf::Text textRankingRow[rankingMaxRows];
+	/* keep it simple for now */
+}TPlayerRanking;
+
 class CMainMenu
 {
 public:
@@ -53,12 +70,15 @@ public:
 	void BuildMenu(sf::RenderWindow& window, float Width, float Height);
 
 	void BuildSettings(sf::RenderWindow& window, float Width, float Height);
-	void BuildRanking(float Width, float Height);
-	void BuildAbout(float Width, float Height);
+	void BuildAbout(sf::RenderWindow& window);
+	void BuildRanking(sf::RenderWindow& window);
 	void BuildBackgroundText(float Width, float Height);
 private:
 	std::unique_ptr<TMainMenu> m_pMenu = std::make_unique<TMainMenu>();
 	std::unique_ptr<TOptions> m_pOptions = std::make_unique<TOptions>();
+	std::unique_ptr<TAbout> m_pAbout = std::make_unique<TAbout>();
+	std::unique_ptr<TPlayerRanking> m_pPlayerRanking = std::make_unique<TPlayerRanking>();
+	TPlayerRanking pRanking;
 
 	std::vector<std::string> menuItemsVec;
 	sf::Text m_versionText;
@@ -75,5 +95,7 @@ private:
 private:
 	uint16_t m_pageIndex;
 	std::vector<std::string> m_optionsTextVec;
-	
+	std::vector<std::string> m_aboutTextVec;
+
+	std::map<uint64_t, TPlayerRanking*> playerRankingMap;
 };

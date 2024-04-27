@@ -9,6 +9,28 @@ CMainMenu::CMainMenu(float Width, float Height)
 {
 	menuItemsVec = { "Play", "Options", "Ranking", "About", "Exit" };
 	m_optionsTextVec = { "Sound", "Background music", "Resolution"};
+	m_aboutTextVec = { "Survivor. Game"
+	, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+		"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+		"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+		"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+		"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+		"when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+		"It has survived not only five centuries, ",
+		"but also the leap into electronic typesetting, remaining essentially unchanged."};
+
+//	PlayerRanking* m_pPlayerRanking = new PlayerRanking(); // Allocate memory for a PlayerRanking instance
+//	std::map<unsigned int, PlayerRanking*> playerRankingMap;
+
+
+	if (!m_buffer.loadFromFile("audio/time_boom.flac"))
+		return;
+
+	if (!m_buff.loadFromFile("audio/clock_tick.flac"))
+		return;
+	m_sound.setBuffer(m_buffer);
+	m_soundTick.setBuffer(m_buff);
 
 	/* always displayed items in constructor - the rest is handled by page states */
 
@@ -31,10 +53,10 @@ void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIn
 		BuildSettings(window, Width, Height);
 		break;
 	case PAGE_STATE_RANKING:
-		BuildRanking(Width, Height);
+		BuildRanking(window);
 		break;
 	case PAGE_STATE_ABOUT:
-		BuildAbout(Width, Height);
+		BuildAbout(window);
 		break;
 	case PAGE_STATE_EXIT:
 		break;
@@ -47,14 +69,6 @@ void CMainMenu::BuildMenu(sf::RenderWindow& window, float Width, float Height)
 	{
 		Log::Instance().TraceLog(eLogType::LOG_TYPE_ERROR, "CMainMenu::CMainMenu could not load font.");
 	}
-
-	if (!m_buffer.loadFromFile("audio/time_boom.flac"))
-		return;
-
-	if (!m_buff.loadFromFile("audio/clock_tick.flac"))
-		return;
-	m_sound.setBuffer(m_buffer);
-	m_soundTick.setBuffer(m_buff);
 
 	//if (m_UpdateAvailable)
 //
@@ -89,14 +103,58 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window, float Width, float Heigh
 	}
 }
 
-void CMainMenu::BuildRanking(float Width, float Height)
+void CMainMenu::BuildRanking(sf::RenderWindow& window)
 {
+	/* todo after -> fix memory leak */
+	PlayerRanking* pRanking = new PlayerRanking(); // Allocate memory for each instance of PlayerRanking
 
+	for (int i = 0; i < pRanking->rankingMaxRows; ++i)
+	{
+		pRanking->dwID = i;
+		pRanking->llPlayerScore = 12000;
+		pRanking->playerNameStr.push_back("NoName" + std::to_string(i)); // Convert integer to string before concatenation
+		playerRankingMap.insert(std::make_pair(pRanking->dwID, pRanking));
+	}
+
+	char pszRow[256];
+	char pszBuffer[256] = { 0 };
+
+	for (auto& it : playerRankingMap)
+	{
+		m_pPlayerRanking->textRankingRow[it.first].setFont(m_pMenu->m_font);
+		m_pPlayerRanking->textRankingRow[it.first].setFillColor(sf::Color::White);
+
+		strncpy(pszBuffer, it.second->playerNameStr[m_pPlayerRanking->playerNameStr.size()].c_str(), sizeof(pszBuffer) - 1);
+		pszBuffer[sizeof(pszBuffer) - 1] = '\0';
+		std::string scoreString = std::to_string(it.second->llPlayerScore);
+		std::string rankString = std::to_string(it.first + 1);
+
+		snprintf(pszRow, sizeof(pszRow), "%s			%s			%s", rankString.c_str(), pszBuffer, scoreString.c_str());
+		m_pPlayerRanking->textRankingRow[it.first].setString(pszRow);
+
+		m_pPlayerRanking->textRankingRow[it.first].setPosition(
+			sf::Vector2f((window.getSize().x / 2.0f) - m_pPlayerRanking->textRankingRow[it.first].getLocalBounds().width / 2,
+				window.getSize().y / 3 + window.getSize().y / 20 * (it.first))
+		);
+
+		window.draw(m_pPlayerRanking->textRankingRow[it.first]);
+	}
+	memset(pszRow, 0x00, sizeof(pszRow));
+	memset(pszBuffer, 0x00, sizeof(pszBuffer));
 }
 
-void CMainMenu::BuildAbout(float Width, float Height)
+void CMainMenu::BuildAbout(sf::RenderWindow& window)
 {
+	for (int i = 0; i < m_aboutTextVec.size(); ++i)
+	{
+		m_pAbout->textAbout[i].setFont(m_pMenu->m_font);
+		m_pAbout->textAbout[i].setCharacterSize(18);
 
+		m_pAbout->textAbout[i].setFillColor(sf::Color::White);
+		m_pAbout->textAbout[i].setString(m_aboutTextVec[i]);
+		m_pAbout->textAbout[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pAbout->textAbout[i].getLocalBounds().width / 2, window.getSize().y / 3 + window.getSize().y / 20 * i));
+		window.draw(m_pAbout->textAbout[i]);
+	}
 }
 
 void CMainMenu::BuildBackgroundText(float Width, float Height)
@@ -116,6 +174,11 @@ void CMainMenu::BuildBackgroundText(float Width, float Height)
 
 void CMainMenu::GetDisplayedTimeHandle()
 {
+	if (!m_pMenu->m_timeFont.loadFromFile("fonts/Fiendish.ttf"))
+	{
+		Log::Instance().TraceLog(eLogType::LOG_TYPE_ERROR, "CMainMenu::CMainMenu could not load font.");
+	}
+
 	static int previousMinute = -1;
 
 	m_timeText.setFont(m_pMenu->m_timeFont);
@@ -143,7 +206,7 @@ void CMainMenu::GetDisplayedTimeHandle()
 	auto elapsedSeconds = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - m_pMenu->displayMillisecondsStartTime).count();
 
 	if (previousMinute == -1)
-		previousMinute = timeInfo->tm_min; // Set previousMinute for the first time
+		previousMinute = timeInfo->tm_min;
 
 	if (previousMinute != timeInfo->tm_min)
 	{
@@ -152,7 +215,7 @@ void CMainMenu::GetDisplayedTimeHandle()
 
 		m_soundTick.setVolume(100);
 		m_soundTick.play();
-		previousMinute = timeInfo->tm_min; // Update previousMinute when a new minute starts
+		previousMinute = timeInfo->tm_min;
 		m_pMenu->displayMillisecondsStartTime = std::chrono::system_clock::now(); // Start time for displaying milliseconds
 	}
 
@@ -172,11 +235,6 @@ void CMainMenu::GetDisplayedTimeHandle()
 
 void CMainMenu::MakeWindow(sf::RenderWindow& window, uint16_t PageIndex)
 {
-	if (!m_pMenu->m_timeFont.loadFromFile("fonts/Fiendish.ttf"))
-	{
-		Log::Instance().TraceLog(eLogType::LOG_TYPE_ERROR, "CMainMenu::CMainMenu could not load font.");
-	}
-
 	DisplayMenuByPageIndex(window, PageIndex, window.getSize().x, window.getSize().y);
 
 	/* always display */
