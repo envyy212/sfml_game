@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
@@ -150,13 +151,19 @@
     <ClCompile Include="TimeManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="ResourceIdentifier.h" />
+    <ClInclude Include="ResourceHolder.h" />
     <ClInclude Include="SettingsModule.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="TextModule.h" />
     <ClInclude Include="TimeManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ResourceHolderInc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

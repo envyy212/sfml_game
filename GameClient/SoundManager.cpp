@@ -1,25 +1,30 @@
 #include "SoundManager.h"
+#include <SFML/Audio.hpp>
 
 CSoundManager::CSoundManager()
+	: m_SoundBuffers()
+	, m_soundNameList()
 {
-	m_soundNameVec = { "clock_tick", "menu_click", "time_boom"};
+//	SoundBufferHolder& mutableSoundBuffers = const_cast<SoundBufferHolder&>(m_SoundBuffers);
 
-	for (auto it = 0; it < m_soundNameVec.size(); ++it)
-	{
-		m_soundNameVec[it] = "audio/" + m_soundNameVec[it];
-		m_soundNameVec[it] += ".flac";
-	}
+	m_SoundBuffers.load(SoundEffect::SOUND_CLOCK_TICK, "audio/clock_tick.flac");
+	m_SoundBuffers.load(SoundEffect::SOUND_TIME_BOOM, "audio/time_boom.flac");
+	m_SoundBuffers.load(SoundEffect::SOUND_MENU_CLICK, "audio/menu_click.flac");
 }
 
-void CSoundManager::MakeSoundBuffer(uint16_t Index)
+void CSoundManager::PlaySounds(SoundEffect::eSound effect)
 {
-	if (!m_soundBuffer.loadFromFile(m_soundNameVec[Index]))
-		return;
+	m_soundNameList.push_back(sf::Sound());
+	sf::Sound& sound = m_soundNameList.back();
+
+	sound.setBuffer(m_SoundBuffers.get(effect));
+	sound.play();
 }
 
-void CSoundManager::MakeSound(float Volume)
+void CSoundManager::RemoveReplayedSound()
 {
-	m_sound.setBuffer(m_soundBuffer);
-	m_sound.setVolume(Volume);
-	m_sound.play();
+	m_soundNameList.remove_if([](const sf::Sound& s)
+		{
+			return s.getStatus() == sf::Sound::Stopped;
+		});
 }

@@ -25,6 +25,9 @@
     <ClCompile Include="TextModule.cpp">
       <Filter>ui</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>ui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -48,6 +51,15 @@
     <ClInclude Include="TextModule.h">
       <Filter>ui</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceIdentifier.h">
+      <Filter>resources</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceHolder.h">
+      <Filter>resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -56,5 +68,13 @@
     <Filter Include="ui">
       <UniqueIdentifier>{5c0ebd10-c9cb-492d-9753-d98bef924e0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{34a9ce17-7a74-4116-807d-d49af7af81a8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ResourceHolderInc.h">
+      <Filter>resources</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -5,11 +5,12 @@
 #include <sstream>
 #include "SoundManager.h"
 
+
 CMainMenu::CMainMenu(float Width, float Height)
 {
 	menuItemsVec = { "Play", "Options", "Ranking", "About", "Exit" };
 	m_optionsTextVec = { "Sound", "Background music", "Resolution"};
-	m_rankingTextVec = { "Ranking", "Rank", "Name", "Score" };
+	m_rankingTextVec = { "Rank", "Name", "Score" };
 	m_aboutTextVec = { "Survivor. Game"
 	, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
@@ -24,14 +25,12 @@ CMainMenu::CMainMenu(float Width, float Height)
 //	PlayerRanking* m_pPlayerRanking = new PlayerRanking(); // Allocate memory for a PlayerRanking instance
 //	std::map<unsigned int, PlayerRanking*> playerRankingMap;
 
-
-	if (!m_buffer.loadFromFile("audio/time_boom.flac"))
+	if (!image.loadFromFile("ui/border.png"))
 		return;
 
-	if (!m_buff.loadFromFile("audio/clock_tick.flac"))
-		return;
-	m_sound.setBuffer(m_buffer);
-	m_soundTick.setBuffer(m_buff);
+	imageSprite.setTexture(image);
+	imageSprite.setScale(sf::Vector2f(1.0f, 1.0f));
+	imageSprite.setPosition(sf::Vector2f(Width/2 - imageSprite.getLocalBounds().width / 2, Height/1.7 - imageSprite.getLocalBounds().height/2));
 
 	/* always displayed items in constructor - the rest is handled by page states */
 
@@ -39,7 +38,7 @@ CMainMenu::CMainMenu(float Width, float Height)
 	m_pOptions->selectedOptionIndex = 1;
 }
 
-void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIndex, float Width, float Height)
+void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIndex)
 {
 	m_pOptions->selectedOptionIndex = PageIndex;
 
@@ -51,7 +50,7 @@ void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIn
 	case PAGE_STATE_PLAY:
 		break;
 	case PAGE_STATE_SETTINGS:
-		BuildSettings(window, Width, Height);
+		BuildSettings(window);
 		break;
 	case PAGE_STATE_RANKING:
 		BuildRanking(window);
@@ -91,35 +90,42 @@ void CMainMenu::BuildMenu(sf::RenderWindow& window)
 	}
 }
 
-void CMainMenu::BuildSettings(sf::RenderWindow& window, float Width, float Height)
+void CMainMenu::BuildSettings(sf::RenderWindow& window)
 {
 	for (int i = 0; i < m_optionsTextVec.size(); ++i)
 	{
 		m_pOptions->optionsText[i].setFont(m_pMenu->m_font);
 		m_pOptions->optionsText[i].setFillColor(sf::Color::White);
 		m_pOptions->optionsText[i].setString(m_optionsTextVec[i]);
-		m_pOptions->optionsText[i].setPosition(sf::Vector2f((Width / 2.0f) - m_pOptions->optionsText[i].getLocalBounds().width / 2, Height / 3 + Height / 16 * i));
+		m_pOptions->optionsText[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pOptions->optionsText[i].getLocalBounds().width / 2, window.getSize().y / 3 + window.getSize().y / 20 * i));
 
+		if (i == PAGE_STATE_SETTINGS - 2)
+		{
+			m_pMenu->m_text[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pMenu->m_text[i].getLocalBounds().width / 2, window.getSize().y / 4));
+			window.draw(m_pMenu->m_text[i]);
+		}
 		window.draw(m_pOptions->optionsText[i]);
 	}
+	window.draw(imageSprite);
 }
 
 void CMainMenu::BuildRanking(sf::RenderWindow& window)
 {
-
 	for (int i = 0; i < m_rankingTextVec.size(); ++i)
 	{
 		m_RankingHeaderText[i].setCharacterSize(26);
 		m_RankingHeaderText[i].setFont(m_pMenu->m_font);
 		m_RankingHeaderText[i].setFillColor(sf::Color::White);
 		m_RankingHeaderText[i].setString(m_rankingTextVec[i]);
-		if(i == 0)
-			m_RankingHeaderText[i].setPosition(sf::Vector2f(((window.getSize().x / 7)) + window.getSize().x / 3, window.getSize().y / 6 + window.getSize().y / 15));
-		else
-			m_RankingHeaderText[i].setPosition(sf::Vector2f(((window.getSize().x / 7) * i) + window.getSize().x / 5, window.getSize().y / 5 + window.getSize().y / 15));
-
+		if (i == PAGE_STATE_RANKING - 2)
+		{
+			m_pMenu->m_text[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pMenu->m_text[i].getLocalBounds().width / 2, window.getSize().y / 4));
+			window.draw(m_pMenu->m_text[i]);
+		}
+		m_RankingHeaderText[i].setPosition(sf::Vector2f(((window.getSize().x / 7) * i) + window.getSize().x / 3, window.getSize().y / 3.5 + window.getSize().y / 20));
 		window.draw(m_RankingHeaderText[i]);
 	}
+	window.draw(imageSprite);
 	BuildRankingData(window);
 }
 
@@ -151,7 +157,7 @@ void CMainMenu::BuildRankingData(sf::RenderWindow& window)
 
 		m_pPlayerRanking->textRankingRow[it.first].setPosition(
 			sf::Vector2f((window.getSize().x / 2.0f) - m_pPlayerRanking->textRankingRow[it.first].getLocalBounds().width / 2,
-				window.getSize().y / 3 + window.getSize().y / 20 * (it.first))
+				window.getSize().y / 2.5 + window.getSize().y / 20 * it.first)
 		);
 
 		window.draw(m_pPlayerRanking->textRankingRow[it.first]);
@@ -168,6 +174,11 @@ void CMainMenu::BuildAbout(sf::RenderWindow& window)
 		m_pAbout->textAbout[i].setFillColor(sf::Color::White);
 		m_pAbout->textAbout[i].setString(m_aboutTextVec[i]);
 		m_pAbout->textAbout[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pAbout->textAbout[i].getLocalBounds().width / 2, window.getSize().y / 3 + window.getSize().y / 20 * i));
+		if (i == PAGE_STATE_ABOUT - 2)
+		{
+			m_pMenu->m_text[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pMenu->m_text[i].getLocalBounds().width / 2, window.getSize().y / 4));
+			window.draw(m_pMenu->m_text[i]);
+		}
 		window.draw(m_pAbout->textAbout[i]);
 	}
 }
@@ -206,7 +217,6 @@ void CMainMenu::GetDisplayedTimeHandle()
 	m_millisecondsText.setFillColor(sf::Color::Red);
 	m_millisecondsText.setPosition(1920 / 1.080, 1080 / 1.085);
 
-	// Get current Windows time
 	std::time_t currentTime = std::time(nullptr);
 	std::tm* timeInfo = std::localtime(&currentTime);
 	std::stringstream timeStream;
@@ -225,13 +235,10 @@ void CMainMenu::GetDisplayedTimeHandle()
 
 	if (previousMinute != timeInfo->tm_min)
 	{
-		m_sound.setVolume(100);
-		m_sound.play();
-
-		m_soundTick.setVolume(100);
-		m_soundTick.play();
+		soundMgr.PlaySounds(SoundEffect::SOUND_TIME_BOOM);
+		soundMgr.PlaySounds(SoundEffect::SOUND_CLOCK_TICK);
 		previousMinute = timeInfo->tm_min;
-		m_pMenu->displayMillisecondsStartTime = std::chrono::system_clock::now(); // Start time for displaying milliseconds
+		m_pMenu->displayMillisecondsStartTime = std::chrono::system_clock::now();
 	}
 
 	if (elapsedSeconds <= 3)
@@ -243,15 +250,14 @@ void CMainMenu::GetDisplayedTimeHandle()
 	}
 	else
 	{
-		m_timeText.setString(timeStream.str()); // Display time without milliseconds
-		m_millisecondsText.setString(""); // Clear milliseconds text
+		m_timeText.setString(timeStream.str());
+		m_millisecondsText.setString("");
 	}
 }
 
 void CMainMenu::MakeWindow(sf::RenderWindow& window, uint16_t PageIndex)
 {
-	DisplayMenuByPageIndex(window, PageIndex, window.getSize().x, window.getSize().y);
-
+	DisplayMenuByPageIndex(window, PageIndex);
 	/* always display */
 	GetDisplayedTimeHandle();
 	BuildBackgroundText(window.getSize().x, window.getSize().y);
@@ -259,6 +265,8 @@ void CMainMenu::MakeWindow(sf::RenderWindow& window, uint16_t PageIndex)
 	window.draw(m_versionText);
 	window.draw(m_mainText);
 	window.draw(m_millisecondsText);
+
+	soundMgr.RemoveReplayedSound();
 }
 
 uint16_t CMainMenu::GetSelectedPageIndex()
@@ -276,7 +284,7 @@ void CMainMenu::SetSelectedItemIndex(uint16_t ItemIndex)
 	m_pMenu->selectedIndex = ItemIndex;
 }
 
-/* fix this shit later */
+/* rewrite */
 void CMainMenu::MoveDirection(uint16_t Direction)
 {
 	switch (Direction)

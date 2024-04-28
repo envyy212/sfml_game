@@ -4,6 +4,9 @@
 #include <windows.h>
 #include <chrono>
 #include <SFML/Audio.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Window/Window.hpp>
 #include "SoundManager.h"
 
 enum ePageState
@@ -65,10 +68,10 @@ public:
 	void MoveDirection(uint16_t Direction);
 	void MakeWindow(sf::RenderWindow& window, uint16_t PageIndex);
 	void GetDisplayedTimeHandle();
-	void DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIndex, float Width, float Height);
+	void DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIndex);
 	void BuildMenu(sf::RenderWindow& window);
 
-	void BuildSettings(sf::RenderWindow& window, float Width, float Height);
+	void BuildSettings(sf::RenderWindow& window);
 	void BuildAbout(sf::RenderWindow& window);
 	void BuildRankingData(sf::RenderWindow& window);
 	void BuildRanking(sf::RenderWindow& window);
@@ -90,15 +93,15 @@ private:
 	sf::SoundBuffer m_buff;
 	sf::Sound m_sound;
 	sf::Sound m_soundTick;
-	CSoundManager* pSoundManager;
-
+	CSoundManager soundMgr;
 private:
 	std::vector<std::string> m_rankingTextVec;
-
+	sf::Texture image;
+	sf::Sprite imageSprite;
 
 	uint16_t m_pageIndex;
 	std::vector<std::string> m_optionsTextVec;
 	std::vector<std::string> m_aboutTextVec;
-	sf::Text m_RankingHeaderText[4];
+	sf::Text m_RankingHeaderText[3];
 	std::map<uint64_t, TPlayerRanking*> playerRankingMap;
 };

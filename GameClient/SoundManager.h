@@ -1,30 +1,22 @@
 #pragma once
-#include <SFML/Audio.hpp>
-#include <unordered_map>
+#include <SFML/Audio/SoundBuffer.hpp>
+#include <SFML/Audio/Sound.hpp>
+#include <SFML/System/NonCopyable.hpp>
+#include "ResourceHolder.h"
+#include "ResourceIdentifier.h"
+#include <list>
 
-enum eSound
-{
-	SOUND_CLOCK_TICK,
-	SOUND_MENU_CLICK,
-	SOUND_TIME_BOOM,
-};
-
-class CSoundManager
+class CSoundManager : private sf::NonCopyable
 {
 public:
+
+	CSoundManager();
 	~CSoundManager() = default;
 
-	void MakeSound(float Volume);
-	void MakeSoundBuffer(uint16_t Index);
-
-	void InitializeMenuMusic();
-
-	void BuildSoundNameVector();
-	CSoundManager();
+	void PlaySounds(SoundEffect::eSound effect);
+	void RemoveReplayedSound();
 
 private:
-	sf::SoundBuffer m_soundBuffer;
-	sf::Sound m_sound;
-
-	std::vector<std::string> m_soundNameVec;
+	SoundBufferHolder m_SoundBuffers;
+	std::list<sf::Sound> m_soundNameList;
 };
