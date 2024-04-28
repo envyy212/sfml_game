@@ -28,7 +28,6 @@ public:
 	bool CheckIsEmptyFile();
 	void ProccessData();
 private:
-
 	std::unordered_map<uint16_t, TSettings> m_settingsMap;
 	TSettings m_pSettings;
 

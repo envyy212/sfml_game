@@ -22,7 +22,6 @@ int Log::TraceLog(eLogType logType, const char* pszLogMsg, ...)
 
 			va_start(arg, pszLogMsg);
 
-			// Get the length of the formatted string
 			int len = _vscprintf(logMessage.c_str(), arg) + 1;
 			std::vector<char> formattedMsg(len);
 			vsnprintf(formattedMsg.data(), len, logMessage.c_str(), arg);

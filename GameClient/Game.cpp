@@ -9,7 +9,7 @@ bool CGame::IsRunning()
 	sf::Music music;
 	CSoundManager soundMgr;
 	if (!music.openFromFile("audio/BGM.flac"))
-		return -1; // error
+		return -1;
 	music.setVolume(80);
 	music.play();
 
@@ -56,3 +56,5 @@ bool CGame::IsRunning()
 	}
 	return m_bState ? true : false;
 }
+
+/* register game state */
