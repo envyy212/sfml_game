@@ -12,6 +12,14 @@ namespace SoundEffect
 	};
 }
 
+namespace Images
+{
+	enum eImage
+	{
+
+	};
+}
+
 template <typename Resource, typename Identifier>
 class ResourceHolder;
 

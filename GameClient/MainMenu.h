@@ -89,10 +89,6 @@ private:
 	sf::Text m_millisecondsText;
 	sf::Text m_mainText;
 
-	sf::SoundBuffer m_buffer;
-	sf::SoundBuffer m_buff;
-	sf::Sound m_sound;
-	sf::Sound m_soundTick;
 	CSoundManager soundMgr;
 private:
 	std::vector<std::string> m_rankingTextVec;

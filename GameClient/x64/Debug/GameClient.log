@@ -1,111 +1,109 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Game.vcxproj, sfml_snake.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: Zprostředkující adresář (x64\Debug\) obsahuje soubory sdílené z jiného projektu (Game.vcxproj, sfml_snake.vcxproj). To může způsobit nesprávné chování při čištění a opětovném sestavení.
   Game.cpp
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(24,53): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(24,53): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(24,53): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(24,53): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(24,53): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(24,33): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(24,33): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(24,33): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(24,33): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(24,33): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(12,11): warning C4305: 'return': truncation from 'int' to 'bool'
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(24,53): warning C4244: argument: T se převádí na float; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(24,53): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(24,53): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(24,53): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(24,53): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(24,33): warning C4244: argument: T se převádí na float; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(24,33): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(24,33): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(24,33): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(24,33): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\Game.cpp(12,11): warning C4305: return: zkrácení z: int na: bool
   MainMenu.cpp
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(33,100): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(33,100): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(33,100): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(33,100): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(33,100): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(87,147): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(87,147): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(87,147): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(87,147): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(87,147): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(87,147): warning C4244:         and
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(87,147): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(87,147): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(87,147): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(100,163): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(100,163): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(100,163): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(100,163): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(100,163): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(100,163): warning C4244:         and
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(100,163): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(100,163): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(100,163): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(104,144): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(104,144): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(104,144): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(104,144): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(104,144): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(104,144): warning C4244:         and
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(104,144): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(104,144): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(104,144): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(122,144): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(122,144): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(122,144): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(122,144): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(122,144): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(122,144): warning C4244:         and
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(122,144): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(122,144): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(122,144): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,133): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,133): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,133): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,133): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,133): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,82): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,82): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,82): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,82): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,82): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,82): warning C4244:         and
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,82): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,82): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(125,82): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(160,30): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(160,30): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(160,30): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(160,30): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(160,30): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(176,155): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(176,155): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(176,155): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(176,155): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(176,155): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(176,155): warning C4244:         and
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(176,155): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(176,155): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(176,155): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(179,144): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(179,144): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(179,144): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(179,144): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(179,144): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(179,144): warning C4244:         and
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(179,144): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(179,144): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(179,144): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(198,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(213,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(213,30): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(218,52): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(218,38): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(263,58): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(263,58): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(263,58): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(263,58): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(263,58): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(263,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(263,38): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(263,38): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(263,38): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(263,38): warning C4244:         ]
-  SoundManager.cpp
-  main.cpp
-  Generating Code...
-  GameClient.vcxproj -> C:\Users\Admin\source\repos\learning\sfml_snake\x64\Debug\GameClient.exe
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(33,100): warning C4244: argument: double se převádí na T; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(33,100): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(33,100): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(33,100): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(33,100): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(87,147): warning C4244: argument: T se převádí na T; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(87,147): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(87,147): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(87,147): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(87,147): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(87,147): warning C4244:         and
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(87,147): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(87,147): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(87,147): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(100,163): warning C4244: argument: T se převádí na T; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(100,163): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(100,163): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(100,163): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(100,163): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(100,163): warning C4244:         and
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(100,163): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(100,163): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(100,163): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(104,144): warning C4244: argument: T se převádí na T; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(104,144): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(104,144): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(104,144): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(104,144): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(104,144): warning C4244:         and
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(104,144): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(104,144): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(104,144): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(122,144): warning C4244: argument: T se převádí na T; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(122,144): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(122,144): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(122,144): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(122,144): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(122,144): warning C4244:         and
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(122,144): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(122,144): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(122,144): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,133): warning C4244: argument: double se převádí na T; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,133): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,133): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,133): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,133): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,82): warning C4244: argument: T se převádí na T; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,82): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,82): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,82): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,82): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,82): warning C4244:         and
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,82): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,82): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(125,82): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(160,30): warning C4244: argument: double se převádí na T; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(160,30): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(160,30): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(160,30): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(160,30): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(176,155): warning C4244: argument: T se převádí na T; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(176,155): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(176,155): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(176,155): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(176,155): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(176,155): warning C4244:         and
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(176,155): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(176,155): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(176,155): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(179,144): warning C4244: argument: T se převádí na T; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(179,144): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(179,144): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(179,144): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(179,144): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(179,144): warning C4244:         and
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(179,144): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(179,144): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(179,144): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(198,65): warning C4244: argument: double se převádí na float; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(213,42): warning C4305: argument: zkrácení z: double na: float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(213,30): warning C4305: argument: zkrácení z: double na: float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(218,52): warning C4305: argument: zkrácení z: double na: float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(218,38): warning C4305: argument: zkrácení z: double na: float
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(263,58): warning C4244: argument: T se převádí na float; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(263,58): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(263,58): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(263,58): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(263,58): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(263,38): warning C4244: argument: T se převádí na float; může dojít ke ztrátě dat.
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(263,38): warning C4244:         with
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(263,38): warning C4244:         [
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(263,38): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\sfml_game\GameClient\MainMenu.cpp(263,38): warning C4244:         ]
+  Generování kódu...
+  GameClient.vcxproj -> C:\Users\danie\Documents\GitHub\sfml_game\x64\Debug\GameClient.exe
