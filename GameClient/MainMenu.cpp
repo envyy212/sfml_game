@@ -9,6 +9,7 @@ CMainMenu::CMainMenu(float Width, float Height)
 {
 	menuItemsVec = { "Play", "Options", "Ranking", "About", "Exit" };
 	m_optionsTextVec = { "Sound", "Background music", "Resolution"};
+	m_rankingTextVec = { "Ranking", "Rank", "Name", "Score" };
 	m_aboutTextVec = { "Survivor. Game"
 	, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 		"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
@@ -45,7 +46,7 @@ void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIn
 	switch (PageIndex)
 	{
 	case PAGE_STATE_MAIN_MENU:
-		BuildMenu(window, window.getSize().x, window.getSize().y);
+		BuildMenu(window);
 		break;
 	case PAGE_STATE_PLAY:
 		break;
@@ -63,7 +64,7 @@ void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIn
 	}
 }
 
-void CMainMenu::BuildMenu(sf::RenderWindow& window, float Width, float Height)
+void CMainMenu::BuildMenu(sf::RenderWindow& window)
 {
 	if (!m_pMenu->m_font.loadFromFile("fonts/arial.ttf"))
 	{
@@ -84,7 +85,7 @@ void CMainMenu::BuildMenu(sf::RenderWindow& window, float Width, float Height)
 		m_pMenu->m_text[i].setFont(m_pMenu->m_font);
 		m_pMenu->m_text[i].setFillColor(sf::Color::White);
 		m_pMenu->m_text[i].setString(menuItemsVec[i]);
-		m_pMenu->m_text[i].setPosition(sf::Vector2f((Width / 2.0f) - m_pMenu->m_text[i].getLocalBounds().width / 2, Height / 3 + Height / 16 * i));
+		m_pMenu->m_text[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pMenu->m_text[i].getLocalBounds().width / 2, window.getSize().y / 3 + window.getSize().y / 16 * i));
 
 		window.draw(m_pMenu->m_text[i]);
 	}
@@ -105,7 +106,26 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window, float Width, float Heigh
 
 void CMainMenu::BuildRanking(sf::RenderWindow& window)
 {
-	/* todo after -> fix memory leak */
+
+	for (int i = 0; i < m_rankingTextVec.size(); ++i)
+	{
+		m_RankingHeaderText[i].setCharacterSize(26);
+		m_RankingHeaderText[i].setFont(m_pMenu->m_font);
+		m_RankingHeaderText[i].setFillColor(sf::Color::White);
+		m_RankingHeaderText[i].setString(m_rankingTextVec[i]);
+		if(i == 0)
+			m_RankingHeaderText[i].setPosition(sf::Vector2f(((window.getSize().x / 7)) + window.getSize().x / 3, window.getSize().y / 6 + window.getSize().y / 15));
+		else
+			m_RankingHeaderText[i].setPosition(sf::Vector2f(((window.getSize().x / 7) * i) + window.getSize().x / 5, window.getSize().y / 5 + window.getSize().y / 15));
+
+		window.draw(m_RankingHeaderText[i]);
+	}
+	BuildRankingData(window);
+}
+
+/* rewrite after - trash */
+void CMainMenu::BuildRankingData(sf::RenderWindow& window)
+{
 	PlayerRanking* pRanking = new PlayerRanking(); // Allocate memory for each instance of PlayerRanking
 
 	for (int i = 0; i < pRanking->rankingMaxRows; ++i)
@@ -116,21 +136,18 @@ void CMainMenu::BuildRanking(sf::RenderWindow& window)
 		playerRankingMap.insert(std::make_pair(pRanking->dwID, pRanking));
 	}
 
-	char pszRow[256];
-	char pszBuffer[256] = { 0 };
-
 	for (auto& it : playerRankingMap)
 	{
+		m_pPlayerRanking->textRankingRow[it.first].setCharacterSize(24);
 		m_pPlayerRanking->textRankingRow[it.first].setFont(m_pMenu->m_font);
 		m_pPlayerRanking->textRankingRow[it.first].setFillColor(sf::Color::White);
 
-		strncpy(pszBuffer, it.second->playerNameStr[m_pPlayerRanking->playerNameStr.size()].c_str(), sizeof(pszBuffer) - 1);
-		pszBuffer[sizeof(pszBuffer) - 1] = '\0';
-		std::string scoreString = std::to_string(it.second->llPlayerScore);
 		std::string rankString = std::to_string(it.first + 1);
 
-		snprintf(pszRow, sizeof(pszRow), "%s			%s			%s", rankString.c_str(), pszBuffer, scoreString.c_str());
-		m_pPlayerRanking->textRankingRow[it.first].setString(pszRow);
+		std::stringstream ss;
+		ss << rankString << std::setw(35) << it.second->playerNameStr[m_pPlayerRanking->playerNameStr.size()] << std::setw(35) << it.second->llPlayerScore;
+
+		m_pPlayerRanking->textRankingRow[it.first].setString(ss.str());
 
 		m_pPlayerRanking->textRankingRow[it.first].setPosition(
 			sf::Vector2f((window.getSize().x / 2.0f) - m_pPlayerRanking->textRankingRow[it.first].getLocalBounds().width / 2,
@@ -139,8 +156,6 @@ void CMainMenu::BuildRanking(sf::RenderWindow& window)
 
 		window.draw(m_pPlayerRanking->textRankingRow[it.first]);
 	}
-	memset(pszRow, 0x00, sizeof(pszRow));
-	memset(pszBuffer, 0x00, sizeof(pszBuffer));
 }
 
 void CMainMenu::BuildAbout(sf::RenderWindow& window)

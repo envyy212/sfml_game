@@ -48,9 +48,8 @@ typedef struct PlayerRanking
 	std::vector<std::string> playerNameStr;
 	uint64_t llPlayerScore;
 
-	static const int rankingMaxRows = 10;
+	static const int rankingMaxRows = 9;
 	sf::Text textRankingRow[rankingMaxRows];
-	/* keep it simple for now */
 }TPlayerRanking;
 
 class CMainMenu
@@ -67,10 +66,11 @@ public:
 	void MakeWindow(sf::RenderWindow& window, uint16_t PageIndex);
 	void GetDisplayedTimeHandle();
 	void DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIndex, float Width, float Height);
-	void BuildMenu(sf::RenderWindow& window, float Width, float Height);
+	void BuildMenu(sf::RenderWindow& window);
 
 	void BuildSettings(sf::RenderWindow& window, float Width, float Height);
 	void BuildAbout(sf::RenderWindow& window);
+	void BuildRankingData(sf::RenderWindow& window);
 	void BuildRanking(sf::RenderWindow& window);
 	void BuildBackgroundText(float Width, float Height);
 private:
@@ -93,9 +93,12 @@ private:
 	CSoundManager* pSoundManager;
 
 private:
+	std::vector<std::string> m_rankingTextVec;
+
+
 	uint16_t m_pageIndex;
 	std::vector<std::string> m_optionsTextVec;
 	std::vector<std::string> m_aboutTextVec;
-
+	sf::Text m_RankingHeaderText[4];
 	std::map<uint64_t, TPlayerRanking*> playerRankingMap;
 };
