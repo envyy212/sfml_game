@@ -4,6 +4,7 @@
 #include <ctime>
 #include <sstream>
 #include "SoundManager.h"
+#include "MouseModule.h"
 
 
 CMainMenu::CMainMenu(float Width, float Height)
@@ -21,6 +22,8 @@ CMainMenu::CMainMenu(float Width, float Height)
 		"when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
 		"It has survived not only five centuries, ",
 		"but also the leap into electronic typesetting, remaining essentially unchanged."};
+
+	txtModule = new TextModule;
 
 //	PlayerRanking* m_pPlayerRanking = new PlayerRanking(); // Allocate memory for a PlayerRanking instance
 //	std::map<unsigned int, PlayerRanking*> playerRankingMap;
@@ -65,65 +68,45 @@ void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIn
 
 void CMainMenu::BuildMenu(sf::RenderWindow& window)
 {
-	if (!m_pMenu->m_font.loadFromFile("fonts/arial.ttf"))
-	{
-		Log::Instance().TraceLog(eLogType::LOG_TYPE_ERROR, "CMainMenu::CMainMenu could not load font.");
-	}
+	MouseModule mousemodule;
 
-	//if (m_UpdateAvailable)
-//
-//	menuItemsVec.push_back("Patch notes");
-//
 	for (int i = 0; i < menuItemsVec.size(); i++)
 	{
-		if (i == 0)
-		{
-			m_pMenu->m_text[m_pMenu->selectedIndex].setOutlineThickness(0.65f);
-			m_pMenu->m_text[m_pMenu->selectedIndex].setOutlineColor(sf::Color::Yellow);
-		}
-		m_pMenu->m_text[i].setFont(m_pMenu->m_font);
-		m_pMenu->m_text[i].setFillColor(sf::Color::White);
-		m_pMenu->m_text[i].setString(menuItemsVec[i]);
-		m_pMenu->m_text[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pMenu->m_text[i].getLocalBounds().width / 2, window.getSize().y / 3 + window.getSize().y / 16 * i));
+		float centerX = (window.getSize().x / 2.0f) - (txtModule->GetBoundingBoxFromStrings(menuItemsVec).width / 2.0f);
+		float centerY = (window.getSize().y / 3 + window.getSize().y / 18);
 
-		window.draw(m_pMenu->m_text[i]);
+		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
+		TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_BUTTON, menuItemsVec[i].c_str(), TextProperties::TEXT_LOWER_BIG, 0, i*70);
+		sf::Text txt;
+		txt.setString(menuItemsVec[i].c_str());
+		txtModule->PerformTextEventByMouseAction(window, mouse, keyboard);
 	}
 }
 
 void CMainMenu::BuildSettings(sf::RenderWindow& window)
 {
-	for (int i = 0; i < m_optionsTextVec.size(); ++i)
+	for (int i = 0; i < m_optionsTextVec.size(); i++)
 	{
-		m_pOptions->optionsText[i].setFont(m_pMenu->m_font);
-		m_pOptions->optionsText[i].setFillColor(sf::Color::White);
-		m_pOptions->optionsText[i].setString(m_optionsTextVec[i]);
-		m_pOptions->optionsText[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pOptions->optionsText[i].getLocalBounds().width / 2, window.getSize().y / 3 + window.getSize().y / 20 * i));
+		float centerX = (window.getSize().x / 2.0f) - (txtModule->GetBoundingBoxFromStrings(menuItemsVec).width / 2.0f);
+		float centerY = (window.getSize().y / 3 + window.getSize().y / 20);
 
-		if (i == PAGE_STATE_SETTINGS - 2)
-		{
-			m_pMenu->m_text[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pMenu->m_text[i].getLocalBounds().width / 2, window.getSize().y / 4));
-			window.draw(m_pMenu->m_text[i]);
-		}
-		window.draw(m_pOptions->optionsText[i]);
+		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
+			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_optionsTextVec[i].c_str(), TextProperties::TEXT_MEDIUM, 0, i*70);
 	}
 	window.draw(imageSprite);
 }
 
 void CMainMenu::BuildRanking(sf::RenderWindow& window)
 {
-	for (int i = 0; i < m_rankingTextVec.size(); ++i)
+	for (int i = 0; i < m_rankingTextVec.size(); i++)
 	{
-		m_RankingHeaderText[i].setCharacterSize(26);
-		m_RankingHeaderText[i].setFont(m_pMenu->m_font);
-		m_RankingHeaderText[i].setFillColor(sf::Color::White);
-		m_RankingHeaderText[i].setString(m_rankingTextVec[i]);
-		if (i == PAGE_STATE_RANKING - 2)
-		{
-			m_pMenu->m_text[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pMenu->m_text[i].getLocalBounds().width / 2, window.getSize().y / 4));
-			window.draw(m_pMenu->m_text[i]);
-		}
-		m_RankingHeaderText[i].setPosition(sf::Vector2f(((window.getSize().x / 7) * i) + window.getSize().x / 3, window.getSize().y / 3.5 + window.getSize().y / 20));
-		window.draw(m_RankingHeaderText[i]);
+		float centerX = (window.getSize().x / 3.0f);
+		float centerY = window.getSize().y / 3.5f;
+
+		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
+			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_rankingTextVec[i].c_str(), TextProperties::TEXT_MEDIUM, i*319, 0);
+
+		txtModule->PerformTextEventByMouseAction(window, mouse, keyboard);
 	}
 	window.draw(imageSprite);
 	BuildRankingData(window);
@@ -166,36 +149,39 @@ void CMainMenu::BuildRankingData(sf::RenderWindow& window)
 
 void CMainMenu::BuildAbout(sf::RenderWindow& window)
 {
-	for (int i = 0; i < m_aboutTextVec.size(); ++i)
+	for (int i = 0; i < m_aboutTextVec.size(); i++)
 	{
-		m_pAbout->textAbout[i].setFont(m_pMenu->m_font);
-		m_pAbout->textAbout[i].setCharacterSize(18);
+		float centerX = (window.getSize().x / 2.0f) - (txtModule->GetBoundingBoxFromStrings(m_aboutTextVec).width / 2.0f);
+		float centerY = window.getSize().y / 3 + window.getSize().y / 20 * i;
 
-		m_pAbout->textAbout[i].setFillColor(sf::Color::White);
-		m_pAbout->textAbout[i].setString(m_aboutTextVec[i]);
-		m_pAbout->textAbout[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pAbout->textAbout[i].getLocalBounds().width / 2, window.getSize().y / 3 + window.getSize().y / 20 * i));
-		if (i == PAGE_STATE_ABOUT - 2)
-		{
-			m_pMenu->m_text[i].setPosition(sf::Vector2f((window.getSize().x / 2.0f) - m_pMenu->m_text[i].getLocalBounds().width / 2, window.getSize().y / 4));
-			window.draw(m_pMenu->m_text[i]);
-		}
-		window.draw(m_pAbout->textAbout[i]);
+		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
+			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_aboutTextVec[i].c_str(), TextProperties::TEXT_SMALL, 0, 0);
 	}
 }
 
-void CMainMenu::BuildBackgroundText(float Width, float Height)
+void CMainMenu::BuildBackgroundText(sf::RenderWindow& window)
 {
-	m_mainText.setFont(m_pMenu->m_font);
-	m_mainText.setCharacterSize(72);
-	m_mainText.setFillColor(sf::Color::White);
-	m_mainText.setString("Survivor.");
-	m_mainText.setPosition(sf::Vector2f((Width / 2.0f) - m_mainText.getLocalBounds().width / 2, Height / 8));
+	/*app name*/
+	std::string applicationName = "Survivor.";
 
-	m_versionText.setFont(m_pMenu->m_font);
-	m_versionText.setCharacterSize(12);
-	m_versionText.setFillColor(sf::Color::White);
-	m_versionText.setString("2024-04-266:42 v0.0.1 - https://github.com/xd12564/");
-	m_versionText.setPosition(m_versionText.getLocalBounds().width - m_versionText.getLocalBounds().width / 1.2, Height - m_versionText.getLocalBounds().height * 4);
+	m_centerX = window.getSize().x / 2.0f;
+	m_centerY = window.getSize().y / 8;
+
+	txtModule->WriteText(window, sf::Vector2f(m_centerX, m_centerY),
+	TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, applicationName.c_str(), TextProperties::TEXT_LARGE, 0, 0);
+	/*app name*/
+}
+
+void CMainMenu::BuildVersionText(sf::RenderWindow& window)
+{
+	/*version*/
+	std::string version = "2024-04-266:42 v0.0.1 - https://github.com/xd12564/";
+	m_centerX = window.getSize().x / 8.0f;
+	m_centerY = window.getSize().y / 1.015;
+
+	txtModule->WriteText(window, sf::Vector2f(m_centerX, m_centerY),
+		TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, version.c_str(), TextProperties::TEXT_EXTRA_SMALL, 0, 0);
+	/*version*/
 }
 
 void CMainMenu::GetDisplayedTimeHandle()
@@ -216,7 +202,7 @@ void CMainMenu::GetDisplayedTimeHandle()
 	m_millisecondsText.setCharacterSize(36);
 	m_millisecondsText.setFillColor(sf::Color::Red);
 	m_millisecondsText.setPosition(1920 / 1.080, 1080 / 1.085);
-
+	 
 	std::time_t currentTime = std::time(nullptr);
 	std::tm* timeInfo = std::localtime(&currentTime);
 	std::stringstream timeStream;
@@ -260,10 +246,10 @@ void CMainMenu::MakeWindow(sf::RenderWindow& window, uint16_t PageIndex)
 	DisplayMenuByPageIndex(window, PageIndex);
 	/* always display */
 	GetDisplayedTimeHandle();
-	BuildBackgroundText(window.getSize().x, window.getSize().y);
+	BuildBackgroundText(window);
+	BuildVersionText(window);
 	window.draw(m_timeText);
-	window.draw(m_versionText);
-	window.draw(m_mainText);
+
 	window.draw(m_millisecondsText);
 
 	soundMgr.RemoveReplayedSound();

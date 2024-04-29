@@ -8,6 +8,7 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Window/Window.hpp>
 #include "SoundManager.h"
+#include "TextModule.h"
 
 enum ePageState
 {
@@ -59,7 +60,10 @@ class CMainMenu
 {
 public:
 	CMainMenu(float Width, float Height);
-	~CMainMenu() = default;
+	~CMainMenu() {
+		delete txtModule;
+		txtModule = nullptr;
+	};
 
 	uint16_t GetSelectedItemIndex();
 	uint16_t GetSelectedPageIndex();
@@ -75,7 +79,8 @@ public:
 	void BuildAbout(sf::RenderWindow& window);
 	void BuildRankingData(sf::RenderWindow& window);
 	void BuildRanking(sf::RenderWindow& window);
-	void BuildBackgroundText(float Width, float Height);
+	void BuildBackgroundText(sf::RenderWindow& window);
+	void BuildVersionText(sf::RenderWindow& window);
 private:
 	std::unique_ptr<TMainMenu> m_pMenu = std::make_unique<TMainMenu>();
 	std::unique_ptr<TOptions> m_pOptions = std::make_unique<TOptions>();
@@ -87,17 +92,22 @@ private:
 	sf::Text m_versionText;
 	sf::Text m_timeText;
 	sf::Text m_millisecondsText;
-	sf::Text m_mainText;
 
 	CSoundManager soundMgr;
 private:
 	std::vector<std::string> m_rankingTextVec;
 	sf::Texture image;
 	sf::Sprite imageSprite;
+	sf::Mouse mouse;
+	sf::Keyboard keyboard;
+	float m_centerX;
+	float m_centerY;
 
 	uint16_t m_pageIndex;
 	std::vector<std::string> m_optionsTextVec;
 	std::vector<std::string> m_aboutTextVec;
 	sf::Text m_RankingHeaderText[3];
 	std::map<uint64_t, TPlayerRanking*> playerRankingMap;
+	TextModule* txtModule;
 };
+

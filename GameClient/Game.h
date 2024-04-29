@@ -17,7 +17,7 @@ public:
 
 	}
 
-	bool IsRunning();
+	void Run();
 	void ProcessSettingsInput();
 
 	inline uint16_t GetWidth() { return m_sWidth; }
@@ -25,7 +25,8 @@ public:
 
 	inline void SetWidth(uint16_t Width) { m_sWidth = Width; }
 	inline void SetHeight(uint16_t Height) { m_sHeight = Height; }
-
+	void SetIndex(uint16_t index) { m_selectedIndex = index; }
+	uint16_t GetIndex() { return m_selectedIndex; }
 	/* mby overload this */
 	enum class WindowConfig
 	{
@@ -33,7 +34,7 @@ public:
 		WINDOW_MAX_HEIGHT = 1080,
 	};
 private:
-
+	uint16_t m_selectedIndex;
 	bool m_bState;
 	uint16_t m_sHeight;
 	uint16_t m_sWidth;

@@ -5,6 +5,7 @@
 #include <SFML/Graphics/Text.hpp>
 #include "ResourceHolder.h"
 #include "ResourceIdentifier.h"
+#include "SoundManager.h"
 
 class TextModule : private sf::NonCopyable
 {
@@ -12,19 +13,28 @@ public:
 	TextModule();
 	~TextModule() = default;
 
-	void WriteText(TextProperties::eTextFont TextFormat, std::string& TextString, TextProperties::eTextSize TextSize);
-	void OnOverText(sf::Mouse mouse);
-	void PerformActionByTextState(TextProperties::eTextState textState, sf::Mouse mouse);
-	void OnClickText(sf::Mouse mouse);
-	void OnDefaultText(sf::Mouse mouse);
+	void WriteText(sf::RenderWindow& window, sf::Vector2f posVec, TextProperties::eTextFont TextFormat, TextProperties::eTextType TextType, const char* TextString, TextProperties::eTextSize TextSize, float xStep, float yStep);
+	void OnOverText(sf::RenderWindow& window,sf::Mouse mouse);
+	void OnClickText(sf::RenderWindow& window,sf::Mouse mouse);
+	void OnDefaultText(sf::RenderWindow& window,sf::Mouse mouse);
 
-	sf::Vector2i GetTextPosition(sf::Text& text);
+	sf::FloatRect GetBoundingBoxFromStrings(const std::vector<std::string>& textStrings);
+	sf::FloatRect GetBoundingBoxFromStrings(const std::string& textStr);
 
-	//	void FreeTextVector();
+	void SetClickedText(sf::Text& clickedText);
+	inline sf::Text GetClickedText() {
+		return m_text;
+	}
+
+	void PerformTextEventByMouseAction(sf::RenderWindow& window, sf::Mouse mouse, sf::Keyboard keyboard);
+	void FreeTextVector();
 private:
+	CSoundManager soundMgr;
 	TextHolder m_FontBuffers;
 	std::vector<sf::Text> m_TextVec;
 	sf::Text m_text;
-	TextProperties::eTextState textState;
+
+	sf::Text m_clickedText;
+
 	bool m_IsClickable;
 };
