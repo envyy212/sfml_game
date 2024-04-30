@@ -3,8 +3,8 @@
 #include <iomanip>
 #include <ctime>
 #include <sstream>
-#include "SoundManager.h"
 #include "MouseModule.h"
+#include "Button.h"
 
 
 CMainMenu::CMainMenu(float Width, float Height)
@@ -28,17 +28,50 @@ CMainMenu::CMainMenu(float Width, float Height)
 //	PlayerRanking* m_pPlayerRanking = new PlayerRanking(); // Allocate memory for a PlayerRanking instance
 //	std::map<unsigned int, PlayerRanking*> playerRankingMap;
 
-	if (!image.loadFromFile("ui/border.png"))
+	if (!image.loadFromFile("ui/Default/Divider Fade/divider-fade-001.png"))
 		return;
+
+	if (!img2.loadFromFile("ui/Default/Divider Line/Divider_Line_001.png"))
+		return;
+
+	if (!img1.loadFromFile("ui/Default/Divider Fade/divider-fade-001.png"))
+		return;
+
+	imageSprite2.setTexture(img2);
+	imageSprite2.setScale(sf::Vector2f(4.5f, 1.0f));
+	imageSprite2.setPosition(sf::Vector2f(Width / 2.4 - imageSprite2.getLocalBounds().width / 2, Height / 5 - imageSprite2.getLocalBounds().height / 2));
 
 	imageSprite.setTexture(image);
 	imageSprite.setScale(sf::Vector2f(1.0f, 1.0f));
-	imageSprite.setPosition(sf::Vector2f(Width/2 - imageSprite.getLocalBounds().width / 2, Height/1.7 - imageSprite.getLocalBounds().height/2));
+	imageSprite.setPosition(sf::Vector2f(Width/1.50 - imageSprite.getLocalBounds().width / 2, Height/ 4.53 - imageSprite.getLocalBounds().height/2));
+
+	imageSprite1.setTexture(img1);
+	imageSprite1.setScale(sf::Vector2f(1.0f, 1.0f));
+	imageSprite1.setPosition(sf::Vector2f(Width / 2.65 - imageSprite1.getLocalBounds().width / 2, Height / 5 - imageSprite.getLocalBounds().height / 2));
+	imageSprite.setRotation(180);
 
 	/* always displayed items in constructor - the rest is handled by page states */
 
 	/* page index 0 reserved for constructor - default state */
 	m_pOptions->selectedOptionIndex = 1;
+}
+
+void CMainMenu::MakeWindow(sf::RenderWindow& window, uint16_t PageIndex)
+{
+	DisplayMenuByPageIndex(window, PageIndex);
+	/* always display */
+	GetDisplayedTimeHandle();
+	BuildBackgroundText(window);
+	BuildVersionText(window);
+	window.draw(m_timeText);
+
+	window.draw(m_millisecondsText);
+
+
+	window.draw(imageSprite);
+	window.draw(imageSprite1);
+	window.draw(imageSprite2);
+	soundMgr.RemoveReplayedSound();
 }
 
 void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIndex)
@@ -62,6 +95,8 @@ void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIn
 		BuildAbout(window);
 		break;
 	case PAGE_STATE_EXIT:
+		window.clear();
+		window.close();
 		break;
 	}
 }
@@ -69,22 +104,28 @@ void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIn
 void CMainMenu::BuildMenu(sf::RenderWindow& window)
 {
 	MouseModule mousemodule;
+	uint16_t index = GetLastSetIndex();
 
 	for (int i = 0; i < menuItemsVec.size(); i++)
 	{
 		float centerX = (window.getSize().x / 2.0f) - (txtModule->GetBoundingBoxFromStrings(menuItemsVec).width / 2.0f);
-		float centerY = (window.getSize().y / 3 + window.getSize().y / 18);
+		float centerY = (window.getSize().y / 3.0f + window.getSize().y / 18.0f);
 
 		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
-		TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_BUTTON, menuItemsVec[i].c_str(), TextProperties::TEXT_LOWER_BIG, 0, i*70);
+			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_BUTTON, menuItemsVec[i].c_str(), TextProperties::TEXT_LOWER_BIG, 0, i * 70);
+
 		sf::Text txt;
 		txt.setString(menuItemsVec[i].c_str());
-		txtModule->PerformTextEventByMouseAction(window, mouse, keyboard);
+
+		txtModule->HandleClickEvent(window, mouse, index);
 	}
+	SetIndex(index);
 }
 
 void CMainMenu::BuildSettings(sf::RenderWindow& window)
 {
+	CButton button;
+
 	for (int i = 0; i < m_optionsTextVec.size(); i++)
 	{
 		float centerX = (window.getSize().x / 2.0f) - (txtModule->GetBoundingBoxFromStrings(menuItemsVec).width / 2.0f);
@@ -93,11 +134,20 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window)
 		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
 			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_optionsTextVec[i].c_str(), TextProperties::TEXT_MEDIUM, 0, i*70);
 	}
-	window.draw(imageSprite);
+	uint16_t index = GetLastSetIndex();
+
+	float centerBtnX = window.getSize().x / 2.7f;
+	float centerBtnY = window.getSize().y / 2.23f;
+
+	button.MakeButton(window, sf::Vector2f(centerBtnX, centerBtnY), 0, 0,1.0f, 1.0f);
+	button.HandleClickEvent(window, mouse, index);
+	SetIndex(index);
 }
 
 void CMainMenu::BuildRanking(sf::RenderWindow& window)
 {
+	CButton button;
+
 	for (int i = 0; i < m_rankingTextVec.size(); i++)
 	{
 		float centerX = (window.getSize().x / 3.0f);
@@ -108,7 +158,15 @@ void CMainMenu::BuildRanking(sf::RenderWindow& window)
 
 		txtModule->PerformTextEventByMouseAction(window, mouse, keyboard);
 	}
-	window.draw(imageSprite);
+	uint16_t index = GetLastSetIndex();
+
+	float centerBtnX = window.getSize().x / 2.7f;
+	float centerBtnY = window.getSize().y / 2.23f;
+
+	button.MakeButton(window, sf::Vector2f(centerBtnX, centerBtnY), 0, 0, 1.0f, 1.0f);
+	button.HandleClickEvent(window, mouse, index);
+	SetIndex(index);
+
 	BuildRankingData(window);
 }
 
@@ -149,6 +207,8 @@ void CMainMenu::BuildRankingData(sf::RenderWindow& window)
 
 void CMainMenu::BuildAbout(sf::RenderWindow& window)
 {
+	CButton button;
+
 	for (int i = 0; i < m_aboutTextVec.size(); i++)
 	{
 		float centerX = (window.getSize().x / 2.0f) - (txtModule->GetBoundingBoxFromStrings(m_aboutTextVec).width / 2.0f);
@@ -157,6 +217,16 @@ void CMainMenu::BuildAbout(sf::RenderWindow& window)
 		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
 			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_aboutTextVec[i].c_str(), TextProperties::TEXT_SMALL, 0, 0);
 	}
+	uint16_t index = GetLastSetIndex();
+
+	float centerBtnX = window.getSize().x / 4.7f;
+	float centerBtnY = window.getSize().y / 2.23f;
+
+	button.MakeButton(window, sf::Vector2f(centerBtnX, centerBtnY), 0, 0, 1.0f, 1.0f);
+	button.HandleClickEvent(window, mouse, index);
+	SetIndex(index);
+
+	BuildRankingData(window);
 }
 
 void CMainMenu::BuildBackgroundText(sf::RenderWindow& window)
@@ -241,18 +311,11 @@ void CMainMenu::GetDisplayedTimeHandle()
 	}
 }
 
-void CMainMenu::MakeWindow(sf::RenderWindow& window, uint16_t PageIndex)
+uint16_t CMainMenu::GetLastSetIndex()
 {
-	DisplayMenuByPageIndex(window, PageIndex);
-	/* always display */
-	GetDisplayedTimeHandle();
-	BuildBackgroundText(window);
-	BuildVersionText(window);
-	window.draw(m_timeText);
-
-	window.draw(m_millisecondsText);
-
-	soundMgr.RemoveReplayedSound();
+	if (!lastSetIndex)
+		return 1;
+	return lastSetIndex;
 }
 
 uint16_t CMainMenu::GetSelectedPageIndex()
@@ -270,7 +333,7 @@ void CMainMenu::SetSelectedItemIndex(uint16_t ItemIndex)
 	m_pMenu->selectedIndex = ItemIndex;
 }
 
-/* rewrite */
+/* rewrite -> move menu with keys implementation */
 void CMainMenu::MoveDirection(uint16_t Direction)
 {
 	switch (Direction)

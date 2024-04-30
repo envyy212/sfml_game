@@ -22,6 +22,16 @@ namespace Images
 	};
 }
 
+namespace TextureProperties
+{
+	enum eTexturesButtonBack
+	{
+		TEXTURE_BUTTON_NORMAL,
+		TEXTURE_BUTTON_OVER,
+		TEXTURE_BUTTON_CLICKED,
+	};
+}
+
 namespace TextProperties
 {
 	enum eTextFont
@@ -47,14 +57,6 @@ namespace TextProperties
 		TEXT_NORMAL,
 		TEXT_BUTTON,
 	};
-
-	enum eTextState
-	{
-		TEXT_STATE_DEFAULT,
-		TEXT_STATE_OVER,
-		TEXT_STATE_CLICKED,
-		TEXT_STATE_LOCKED, /*text as button locked (disabled)*/
-	};
 }
 
 template <typename Resource, typename Identifier>
@@ -62,3 +64,4 @@ class ResourceHolder;
 
 typedef ResourceHolder<sf::Font, TextProperties::eTextFont> TextHolder;
 typedef ResourceHolder<sf::SoundBuffer, SoundEffect::eSound> SoundBufferHolder;
+typedef ResourceHolder<sf::Texture, TextureProperties::eTexturesButtonBack> TextureHolder;

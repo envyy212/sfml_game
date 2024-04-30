@@ -3,6 +3,7 @@
 #include "MouseModule.h"
 #include "MainMenu.h"
 #include <functional>
+#include "Game.h"
 
 TextModule::TextModule()
 	: m_FontBuffers(), m_TextVec(), m_text(), m_IsClickable()
@@ -14,7 +15,7 @@ TextModule::TextModule()
 	m_IsClickable = false;
 }
 
-void TextModule::WriteText(sf::RenderWindow& window, sf::Vector2f posVec, TextProperties::eTextFont TextFormat, TextProperties::eTextType TextType, const char* TextString, TextProperties::eTextSize TextSize,float xStep, float yStep)
+void TextModule::WriteText(sf::RenderWindow& window, sf::Vector2f posVec, TextProperties::eTextFont TextFormat, TextProperties::eTextType TextType, const char* TextString, TextProperties::eTextSize TextSize, float xStep, float yStep)
 {
 	if (TextType == TextProperties::TEXT_BUTTON)
 		m_IsClickable = true;
@@ -41,6 +42,39 @@ void TextModule::WriteText(sf::RenderWindow& window, sf::Vector2f posVec, TextPr
 	m_text.setOrigin(localBounds.left + localBounds.width / 2.0f, localBounds.top + localBounds.height / 2.0f);
 
 	window.draw(m_text);
+}
+
+void TextModule::HandleClickEvent(sf::RenderWindow& window, sf::Mouse mouse, uint16_t& index)
+{
+	sf::FloatRect textBounds = GetBoundingBoxFromStrings(m_text.getString());
+
+	if (m_IsClickable)
+	{
+		if (textBounds.contains(static_cast<sf::Vector2f>(mouse.getPosition(window))))
+		{
+			if (mouse.isButtonPressed(sf::Mouse::Button::Left))
+			{
+				/*rewrite */
+
+				if (m_text.getString() == "Play")
+					index = 2;
+				else if (m_text.getString() == "Options")
+					index = 3;
+				else if (m_text.getString() == "Ranking")
+					index = 4;
+				else if (m_text.getString() == "About")
+					index = 5;
+				else if (m_text.getString() == "Exit")
+					index = 6;
+
+				OnClickText(window, mouse);
+			}
+			else
+				OnOverText(window, mouse);
+		}
+		else
+			OnDefaultText(window, mouse);
+	}
 }
 
 sf::FloatRect TextModule::GetBoundingBoxFromStrings(const std::vector<std::string>& textStrings)
@@ -99,14 +133,18 @@ void TextModule::OnOverText(sf::RenderWindow& window, sf::Mouse mouse)
 
 void TextModule::OnClickText(sf::RenderWindow& window, sf::Mouse mouse)
 {
-	MouseModule cmouse;
-	CMainMenu menu(window.getSize().x, window.getSize().y);
-
+	CGame game;
 	soundMgr.PlaySounds(SoundEffect::SOUND_MENU_CLICK);
 
 	m_text.setOutlineThickness(0.85f);
 	m_text.setOutlineColor(sf::Color::Yellow);
+
 	window.draw(m_text);
+}
+
+void TextModule::SetClickedText(sf::Text& clickedText)
+{
+	m_clickedText = clickedText;
 }
 
 void TextModule::PerformTextEventByMouseAction(sf::RenderWindow& window, sf::Mouse mouse, sf::Keyboard keyboard)
@@ -127,10 +165,6 @@ void TextModule::PerformTextEventByMouseAction(sf::RenderWindow& window, sf::Mou
 	OnDefaultText(window, mouse);
 }
 
-void TextModule::SetClickedText(sf::Text& clickedText)
-{
-	m_text = clickedText;
-}
 
 //void TextModule::FlushBounding()
 //{

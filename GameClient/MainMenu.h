@@ -9,6 +9,7 @@
 #include <SFML/Window/Window.hpp>
 #include "SoundManager.h"
 #include "TextModule.h"
+#include "Game.h"
 
 enum ePageState
 {
@@ -81,6 +82,10 @@ public:
 	void BuildRanking(sf::RenderWindow& window);
 	void BuildBackgroundText(sf::RenderWindow& window);
 	void BuildVersionText(sf::RenderWindow& window);
+
+	void SetIndex(uint16_t index) { lastSetIndex = index; }
+	uint16_t GetLastSetIndex();
+
 private:
 	std::unique_ptr<TMainMenu> m_pMenu = std::make_unique<TMainMenu>();
 	std::unique_ptr<TOptions> m_pOptions = std::make_unique<TOptions>();
@@ -95,9 +100,22 @@ private:
 
 	CSoundManager soundMgr;
 private:
+	uint16_t lastSetIndex;
+
 	std::vector<std::string> m_rankingTextVec;
 	sf::Texture image;
+	sf::Texture img1;
+	sf::Texture img2;
+	sf::Texture img3;
+	sf::Texture img4;
+
 	sf::Sprite imageSprite;
+	sf::Sprite imageSprite1;
+	sf::Sprite imageSprite2;
+	sf::Sprite imageSprite3;
+	sf::Sprite imageSprite4;
+
+
 	sf::Mouse mouse;
 	sf::Keyboard keyboard;
 	float m_centerX;

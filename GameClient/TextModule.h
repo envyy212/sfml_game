@@ -23,11 +23,13 @@ public:
 
 	void SetClickedText(sf::Text& clickedText);
 	inline sf::Text GetClickedText() {
-		return m_text;
+		return m_clickedText;
 	}
 
+	void HandleClickEvent(sf::RenderWindow& window, sf::Mouse mouse, uint16_t& index);
+
 	void PerformTextEventByMouseAction(sf::RenderWindow& window, sf::Mouse mouse, sf::Keyboard keyboard);
-	void FreeTextVector();
+//	void FreeTextVector();
 private:
 	CSoundManager soundMgr;
 	TextHolder m_FontBuffers;

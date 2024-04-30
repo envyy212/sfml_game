@@ -4,7 +4,6 @@
 
 void MouseModule::HandleMouseClick(sf::RenderWindow& window, sf::Text& text, std::function<void(void)> funcToCall)
 {
-	// Your existing implementation code here
 	sf::Event event;
 	while (window.pollEvent(event))
 	{

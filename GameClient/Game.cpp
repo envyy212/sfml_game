@@ -11,24 +11,23 @@ void CGame::Run()
 	sf::Music music;
 	CSoundManager soundMgr;
 	sf::Keyboard keyboard;
-	TextModule ctext;
+	TextModule* ctext = new TextModule;
 	if (!music.openFromFile("audio/BGM.flac"))
 		return;
 	music.setVolume(80);
 	music.play();
 
 	sf::Mouse mouse;
-	MouseModule mousemodule;
 
 	std::unique_ptr<CSettingsModule> pModule = std::make_unique<CSettingsModule>();
 	pModule->ProccessData();
 
 	sf::RenderWindow window(sf::VideoMode(m_sWidth, m_sHeight), "Survivor. v0.0.1", sf::Style::Fullscreen);
 
-	CMainMenu menu(window.getSize().x, window.getSize().y);
+	CMainMenu* pMenu = new CMainMenu(window.getSize().x, window.getSize().y);
 
-	uint16_t index = 1;
-	SetIndex(index);
+	uint16_t currentMenuIndex = pMenu->GetLastSetIndex(); // Store the last set index value
+
 
 	while (window.isOpen())
 	{
@@ -36,43 +35,32 @@ void CGame::Run()
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
+			{
+				window.clear();
 				window.close();
-
-			if (event.type == sf::Event::KeyReleased)
+			}
+			else if (event.type == sf::Event::MouseButtonPressed)
+			{
+				ctext->HandleClickEvent(window, mouse, currentMenuIndex); // Update the index value when a button is clicked
+			}
+			else if (event.type == sf::Event::KeyPressed)
 			{
 				if (event.key.code == sf::Keyboard::Key::Up)
 				{
-					index--;
-					SetIndex(index);
-					menu.MoveDirection(static_cast<uint16_t>(sf::Keyboard::Key::Up));
-					soundMgr.PlaySounds(SoundEffect::SOUND_MENU_CLICK);
+					pMenu->MoveDirection(static_cast<uint16_t>(sf::Keyboard::Key::Up));
 				}
-				if (event.key.code == sf::Keyboard::Key::Down)
+				else if (event.key.code == sf::Keyboard::Key::Down)
 				{
-					index++;
-					SetIndex(index);
-					menu.MoveDirection(static_cast<uint16_t>(sf::Keyboard::Key::Down));
-					soundMgr.PlaySounds(SoundEffect::SOUND_MENU_CLICK);
+					pMenu->MoveDirection(static_cast<uint16_t>(sf::Keyboard::Key::Down));
 				}
 			}
-
-//			module.SetTextStateByMouseAction(mouse);
 		}
+
 		window.clear();
 
-		auto functionToCall = [this, &index]() {
-			SetIndex(3);
-			};
+		pMenu->MakeWindow(window, currentMenuIndex);
+		currentMenuIndex = pMenu->GetLastSetIndex();
 
-		std::string stra = ctext.GetClickedText().getString();
-		sf::Text txt;
-		txt.setString(stra);
-		std::cout << GetIndex();
-		std::cout << "\n" << "clicked:" << stra;
-
-
-		mousemodule.HandleMouseClick(window, txt, functionToCall);
-		menu.MakeWindow(window, GetIndex());
 		window.display();
 	}
 }

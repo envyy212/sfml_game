@@ -31,6 +31,9 @@
     <ClCompile Include="MouseModule.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="GameStateHandle.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -64,6 +67,9 @@
       <Filter>resources</Filter>
     </ClInclude>
     <ClInclude Include="MouseModule.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateHandle.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
