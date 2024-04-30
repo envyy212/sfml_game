@@ -44,9 +44,8 @@ void CButton::OnOverButton(sf::RenderWindow& window, sf::Mouse mouse)
 
 void CButton::OnClickButton(sf::RenderWindow& window, sf::Mouse mouse)
 {
-	CSoundManager soundMgr;
-
-	soundMgr.PlaySounds(SoundEffect::SOUND_MENU_CLICK);
+	CSoundManager* pSoundMgr = new CSoundManager;
+	pSoundMgr->PlaySounds(SoundEffect::SOUND_MENU_CLICK);
 
 	m_Texture = m_TextureHolder.get(TextureProperties::TEXTURE_BUTTON_CLICKED);
 	m_buttonImage.setTexture(m_Texture);

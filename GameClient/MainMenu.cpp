@@ -71,7 +71,6 @@ void CMainMenu::MakeWindow(sf::RenderWindow& window, uint16_t PageIndex)
 	window.draw(imageSprite);
 	window.draw(imageSprite1);
 	window.draw(imageSprite2);
-	soundMgr.RemoveReplayedSound();
 }
 
 void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIndex)

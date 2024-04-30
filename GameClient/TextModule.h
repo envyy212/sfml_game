@@ -31,7 +31,6 @@ public:
 	void PerformTextEventByMouseAction(sf::RenderWindow& window, sf::Mouse mouse, sf::Keyboard keyboard);
 //	void FreeTextVector();
 private:
-	CSoundManager soundMgr;
 	TextHolder m_FontBuffers;
 	std::vector<sf::Text> m_TextVec;
 	sf::Text m_text;

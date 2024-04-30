@@ -1,1 +1,5 @@
-﻿
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: Zprostředkující adresář (x64\Debug\) obsahuje soubory sdílené z jiného projektu (Game.vcxproj, sfml_snake.vcxproj). To může způsobit nesprávné chování při čištění a opětovném sestavení.
+  Button.cpp
+  TextModule.cpp
+  Generování kódu...
+  GameClient.vcxproj -> C:\Users\danie\Documents\GitHub\sfml_game\x64\Debug\GameClient.exe
