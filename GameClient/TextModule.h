@@ -6,6 +6,7 @@
 #include "ResourceHolder.h"
 #include "ResourceIdentifier.h"
 #include "SoundManager.h"
+#include <unordered_map>
 
 class TextModule : private sf::NonCopyable
 {
@@ -31,6 +32,8 @@ public:
 	void PerformTextEventByMouseAction(sf::RenderWindow& window, sf::Mouse mouse, sf::Keyboard keyboard);
 //	void FreeTextVector();
 private:
+	std::unordered_map<std::string, uint16_t>m_textIndexMap;
+
 	CSoundManager soundMgr;
 	TextHolder m_FontBuffers;
 	std::vector<sf::Text> m_TextVec;

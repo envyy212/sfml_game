@@ -101,6 +101,7 @@ private:
 	CSoundManager soundMgr;
 private:
 	uint16_t lastSetIndex;
+	uint16_t lastSetSubIndex;
 
 	std::vector<std::string> m_rankingTextVec;
 	sf::Texture image;

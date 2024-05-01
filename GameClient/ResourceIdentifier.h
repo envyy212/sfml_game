@@ -30,6 +30,12 @@ namespace TextureProperties
 		TEXTURE_BUTTON_OVER,
 		TEXTURE_BUTTON_CLICKED,
 	};
+
+	enum eTextureBar
+	{
+		TEXTURE_BAR_EMPTY,
+		TEXTURE_BAR_FULL,
+	};
 }
 
 namespace TextProperties
@@ -65,3 +71,5 @@ class ResourceHolder;
 typedef ResourceHolder<sf::Font, TextProperties::eTextFont> TextHolder;
 typedef ResourceHolder<sf::SoundBuffer, SoundEffect::eSound> SoundBufferHolder;
 typedef ResourceHolder<sf::Texture, TextureProperties::eTexturesButtonBack> TextureHolder;
+
+typedef ResourceHolder<sf::Texture, TextureProperties::eTextureBar> TextureBarHolder;

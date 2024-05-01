@@ -76,7 +76,7 @@ void CMainMenu::MakeWindow(sf::RenderWindow& window, uint16_t PageIndex)
 
 void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIndex)
 {
-	m_pOptions->selectedOptionIndex = PageIndex;
+	m_pOptions->selectedOptionIndex = PageIndex;//arrow movement related
 
 	switch (PageIndex)
 	{
@@ -95,7 +95,6 @@ void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIn
 		BuildAbout(window);
 		break;
 	case PAGE_STATE_EXIT:
-		window.clear();
 		window.close();
 		break;
 	}
@@ -126,6 +125,8 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window)
 {
 	CButton button;
 
+	uint16_t mainMenuIndex = GetLastSetIndex();
+
 	for (int i = 0; i < m_optionsTextVec.size(); i++)
 	{
 		float centerX = (window.getSize().x / 2.0f) - (txtModule->GetBoundingBoxFromStrings(menuItemsVec).width / 2.0f);
@@ -133,15 +134,17 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window)
 
 		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
 			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_optionsTextVec[i].c_str(), TextProperties::TEXT_MEDIUM, 0, i*70);
+
+		txtModule->HandleClickEvent(window, mouse, mainMenuIndex);
 	}
-	uint16_t index = GetLastSetIndex();
 
 	float centerBtnX = window.getSize().x / 2.7f;
 	float centerBtnY = window.getSize().y / 2.23f;
 
 	button.MakeButton(window, sf::Vector2f(centerBtnX, centerBtnY), 0, 0,1.0f, 1.0f);
-	button.HandleClickEvent(window, mouse, index);
-	SetIndex(index);
+	button.HandleClickEvent(window, mouse, mainMenuIndex);
+
+	SetIndex(mainMenuIndex);
 }
 
 void CMainMenu::BuildRanking(sf::RenderWindow& window)
@@ -217,14 +220,14 @@ void CMainMenu::BuildAbout(sf::RenderWindow& window)
 		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
 			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_aboutTextVec[i].c_str(), TextProperties::TEXT_SMALL, 0, 0);
 	}
-	uint16_t index = GetLastSetIndex();
+	uint16_t mainMenuIndex = GetLastSetIndex();
 
 	float centerBtnX = window.getSize().x / 4.7f;
 	float centerBtnY = window.getSize().y / 2.23f;
 
 	button.MakeButton(window, sf::Vector2f(centerBtnX, centerBtnY), 0, 0, 1.0f, 1.0f);
-	button.HandleClickEvent(window, mouse, index);
-	SetIndex(index);
+	button.HandleClickEvent(window, mouse, mainMenuIndex);
+	SetIndex(mainMenuIndex);
 
 	BuildRankingData(window);
 }
@@ -313,11 +316,13 @@ void CMainMenu::GetDisplayedTimeHandle()
 
 uint16_t CMainMenu::GetLastSetIndex()
 {
+
 	if (!lastSetIndex)
 		return 1;
 	return lastSetIndex;
 }
 
+/* move menu with arrows related */
 uint16_t CMainMenu::GetSelectedPageIndex()
 {
 	return m_pOptions->selectedOptionIndex;
@@ -332,6 +337,7 @@ void CMainMenu::SetSelectedItemIndex(uint16_t ItemIndex)
 {
 	m_pMenu->selectedIndex = ItemIndex;
 }
+/* move menu with arrows related */
 
 /* rewrite -> move menu with keys implementation */
 void CMainMenu::MoveDirection(uint16_t Direction)

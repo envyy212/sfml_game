@@ -36,7 +36,6 @@ void CGame::Run()
 		{
 			if (event.type == sf::Event::Closed)
 			{
-				window.clear();
 				window.close();
 			}
 			else if (event.type == sf::Event::MouseButtonPressed)

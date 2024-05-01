@@ -12,6 +12,14 @@ TextModule::TextModule()
 	m_FontBuffers.load(TextProperties::TEXT_FONT_FIENDISH, "fonts/Fiendish.ttf");
 	m_FontBuffers.load(TextProperties::TEXT_FONT_TUFFY, "fonts/tuffy.ttf");
 
+	m_textIndexMap = {
+		{"Play", 2},
+		{"Options", 3},
+		{"Ranking", 4},
+		{"About", 5},
+		{"Exit", 6},
+	};
+
 	m_IsClickable = false;
 }
 
@@ -54,18 +62,12 @@ void TextModule::HandleClickEvent(sf::RenderWindow& window, sf::Mouse mouse, uin
 		{
 			if (mouse.isButtonPressed(sf::Mouse::Button::Left))
 			{
-				/*rewrite */
+				auto it = m_textIndexMap.find(m_text.getString());
 
-				if (m_text.getString() == "Play")
-					index = 2;
-				else if (m_text.getString() == "Options")
-					index = 3;
-				else if (m_text.getString() == "Ranking")
-					index = 4;
-				else if (m_text.getString() == "About")
-					index = 5;
-				else if (m_text.getString() == "Exit")
-					index = 6;
+				if (it != m_textIndexMap.end())
+					index = it->second;
+				else
+					index = 0;
 
 				OnClickText(window, mouse);
 			}
