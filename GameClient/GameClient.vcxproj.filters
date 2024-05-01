@@ -34,6 +34,7 @@
     <ClCompile Include="GameStateHandle.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Bar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -72,6 +73,7 @@
     <ClInclude Include="GameStateHandle.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="Bar.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
