@@ -19,17 +19,15 @@ void CBar::OnDefaultBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& s
 	window.draw(m_SpriteBg);
 }
 
-void CBar::OnFullBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, float volume, sf::Vector2f fPosition, bool isMusic)
+void CBar::OnFullBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, float volume, sf::Vector2f fPosition)
 {
 	m_BarTexture = m_TextureBarHolder.get(TextureProperties::TEXTURE_BAR_FULL);
 	m_SpriteBar.setTexture(m_BarTexture);
 
 	m_SpriteBar.setPosition(fPosition.x + 2, fPosition.y + 4);
 
-	if (isMusic)
-		sound.setVolume(volume);
-	else
-		Music.setVolume(volume);
+
+	sound.setVolume(volume);
 
 	m_SpriteBar.setScale(volume / 100.0f, 1.0f);
 
