@@ -33,6 +33,7 @@ namespace TextureProperties
 
 	enum eTextureBar
 	{
+		TEXTURE_BAR_LAYER,
 		TEXTURE_BAR_EMPTY,
 		TEXTURE_BAR_FULL,
 	};

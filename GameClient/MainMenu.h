@@ -10,6 +10,7 @@
 #include "SoundManager.h"
 #include "TextModule.h"
 #include "Game.h"
+#include "Bar.h"
 
 enum ePageState
 {
@@ -71,12 +72,12 @@ public:
 	void SetSelectedItemIndex(uint16_t ItemIndex);
 
 	void MoveDirection(uint16_t Direction);
-	void MakeWindow(sf::RenderWindow& window, uint16_t PageIndex);
+	void MakeWindow(sf::RenderWindow& window,sf::Mouse& mouse, sf::Sound& sound, sf::Music& music, uint16_t PageIndex);
 	void GetDisplayedTimeHandle();
-	void DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIndex);
+	void DisplayMenuByPageIndex(sf::RenderWindow& window,sf::Mouse& mouse,sf::Sound& sound,sf::Music& music, uint16_t PageIndex);
 	void BuildMenu(sf::RenderWindow& window);
 
-	void BuildSettings(sf::RenderWindow& window);
+	void BuildSettings(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, sf::Music& music);
 	void BuildAbout(sf::RenderWindow& window);
 	void BuildRankingData(sf::RenderWindow& window);
 	void BuildRanking(sf::RenderWindow& window);
@@ -100,6 +101,9 @@ private:
 
 	CSoundManager soundMgr;
 private:
+	CBar m_Bar;
+	CBar m_MusicBar;
+
 	uint16_t lastSetIndex;
 	uint16_t lastSetSubIndex;
 

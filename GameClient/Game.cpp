@@ -11,6 +11,9 @@ void CGame::Run()
 	sf::Music music;
 	CSoundManager soundMgr;
 	sf::Keyboard keyboard;
+
+	sf::Sound sound;
+
 	TextModule* ctext = new TextModule;
 	if (!music.openFromFile("audio/BGM.flac"))
 		return;
@@ -56,10 +59,8 @@ void CGame::Run()
 		}
 
 		window.clear();
-
-		pMenu->MakeWindow(window, currentMenuIndex);
+		pMenu->MakeWindow(window, mouse, sound, music, currentMenuIndex);
 		currentMenuIndex = pMenu->GetLastSetIndex();
-
 		window.display();
 	}
 }

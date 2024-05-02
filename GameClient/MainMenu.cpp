@@ -56,9 +56,9 @@ CMainMenu::CMainMenu(float Width, float Height)
 	m_pOptions->selectedOptionIndex = 1;
 }
 
-void CMainMenu::MakeWindow(sf::RenderWindow& window, uint16_t PageIndex)
+void CMainMenu::MakeWindow(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound,sf::Music& music, uint16_t PageIndex)
 {
-	DisplayMenuByPageIndex(window, PageIndex);
+	DisplayMenuByPageIndex(window,mouse, sound, music, PageIndex);
 	/* always display */
 	GetDisplayedTimeHandle();
 	BuildBackgroundText(window);
@@ -73,7 +73,7 @@ void CMainMenu::MakeWindow(sf::RenderWindow& window, uint16_t PageIndex)
 	window.draw(imageSprite2);
 }
 
-void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIndex)
+void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, sf::Music& music, uint16_t PageIndex)
 {
 	m_pOptions->selectedOptionIndex = PageIndex;//arrow movement related
 
@@ -85,7 +85,7 @@ void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, uint16_t PageIn
 	case PAGE_STATE_PLAY:
 		break;
 	case PAGE_STATE_SETTINGS:
-		BuildSettings(window);
+		BuildSettings(window, mouse, sound, music);
 		break;
 	case PAGE_STATE_RANKING:
 		BuildRanking(window);
@@ -120,28 +120,52 @@ void CMainMenu::BuildMenu(sf::RenderWindow& window)
 	SetIndex(index);
 }
 
-void CMainMenu::BuildSettings(sf::RenderWindow& window)
+void CMainMenu::BuildSettings(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, sf::Music& music)
 {
-	CButton button;
+    CButton button;
 
-	uint16_t mainMenuIndex = GetLastSetIndex();
+    uint16_t mainMenuIndex = GetLastSetIndex();
 
-	for (int i = 0; i < m_optionsTextVec.size(); i++)
+    for (int i = 0; i < m_optionsTextVec.size(); i++)
+    {
+        // Render menu options
+        float centerX = (window.getSize().x / 2.0f) - (txtModule->GetBoundingBoxFromStrings(menuItemsVec).width / 2.0f);
+        float centerY = (window.getSize().y / 3 + window.getSize().y / 20);
+
+        txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
+            TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_optionsTextVec[i].c_str(), TextProperties::TEXT_MEDIUM, 0, i * 70);
+    }
+
+    // Create and handle button click event
+    float centerBtnX = window.getSize().x / 2.7f;
+    float centerBtnY = window.getSize().y / 2.23f;
+    button.MakeButton(window, sf::Vector2f(centerBtnX, centerBtnY), 0, 0, 1.0f, 1.0f);
+    button.HandleClickEvent(window, mouse, mainMenuIndex);
+
+    // Handle volume bar click event
+
+	sf::Vector2f barPos = sf::Vector2f(window.getSize().x / 1.7f, window.getSize().y / 2.8f);
+    float volume = sound.getVolume();
+    m_Bar.RenderVolumeBar(window, mouse, sound, volume, true, barPos);
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
-		float centerX = (window.getSize().x / 2.0f) - (txtModule->GetBoundingBoxFromStrings(menuItemsVec).width / 2.0f);
-		float centerY = (window.getSize().y / 3 + window.getSize().y / 20);
-
-		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
-			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_optionsTextVec[i].c_str(), TextProperties::TEXT_MEDIUM, 0, i*70);
+		m_Bar.OnClickBar(window, mouse, sound, barPos, 200);
 	}
 
-	float centerBtnX = window.getSize().x / 2.7f;
-	float centerBtnY = window.getSize().y / 2.23f;
+	sf::Vector2f barPoss = sf::Vector2f(window.getSize().x / 1.7f, window.getSize().y / 2.35f);
 
-	button.MakeButton(window, sf::Vector2f(centerBtnX, centerBtnY), 0, 0,1.0f, 1.0f);
-	button.HandleClickEvent(window, mouse, mainMenuIndex);
+	sf::Music* pMusic = new sf::Music();
 
-	SetIndex(mainMenuIndex);
+	float fvolume = pMusic->getVolume();
+	m_MusicBar.RenderVolumeBar(window, mouse, sound, fvolume, true, barPoss);
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+	{
+		m_MusicBar.OnClickBar(window, mouse, sound, barPoss, 200);
+	}
+
+    SetIndex(mainMenuIndex);
 }
 
 void CMainMenu::BuildRanking(sf::RenderWindow& window)
