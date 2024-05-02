@@ -4,25 +4,24 @@
 
 CBar::CBar()
 {
-	m_TextureBarHolder.load(TextureProperties::TEXTURE_BAR_LAYER, "ui/bars/ProgressBar_07/BarV7_ProgressBarBorder.png");
-	m_TextureBarHolder.load(TextureProperties::TEXTURE_BAR_EMPTY, "ui/bars/ProgressBar_07/BarV7_Bar.png");
-	m_TextureBarHolder.load(TextureProperties::TEXTURE_BAR_FULL, "ui/bars/ProgressBar_07/BarV7_ProgressBar.png");
 }
 
-void CBar::OnDefaultBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, sf::Vector2f fPosition)
+void CBar::OnDefaultBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Vector2f fPosition)
 {
-	m_TextureBg = m_TextureBarHolder.get(TextureProperties::TEXTURE_BAR_EMPTY);
+	TextureBarHolder& textureHolder = FileLoader::Instance().GetTextureBarHolder();
+	sf::Texture& buttonTexture = textureHolder.get(TextureProperties::TEXTURE_BAR_EMPTY);
 
-	m_SpriteBg.setTexture(m_TextureBg);
+	m_SpriteBg.setTexture(buttonTexture);
 	m_SpriteBg.setPosition(fPosition.x, fPosition.y);
 
 	window.draw(m_SpriteBg);
 }
 
-void CBar::OnFullBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, float volume, sf::Vector2f fPosition)
+void CBar::OnFullBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, float& volume, sf::Vector2f fPosition)
 {
-	m_BarTexture = m_TextureBarHolder.get(TextureProperties::TEXTURE_BAR_FULL);
-	m_SpriteBar.setTexture(m_BarTexture);
+	TextureBarHolder& textureHolder = FileLoader::Instance().GetTextureBarHolder();
+	sf::Texture& buttonTexture = textureHolder.get(TextureProperties::TEXTURE_BAR_FULL);
+	m_SpriteBar.setTexture(buttonTexture);
 
 	m_SpriteBar.setPosition(fPosition.x + 2, fPosition.y + 4);
 
@@ -72,9 +71,9 @@ void CBar::OnClickBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sou
 	m_SpriteBar.setScale(volume / 100.0f, 1.0f);
 }
 
-void CBar::RenderVolumeBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, float volume, bool isFullBar, sf::Vector2f fPosition)
+void CBar::RenderVolumeBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, float& volume, bool isFullBar, sf::Vector2f fPosition)
 {
-	OnDefaultBar(window, mouse, sound, fPosition);
+	OnDefaultBar(window, mouse, fPosition);
 
 	if (mouse.isButtonPressed(mouse.Button::Left))
 		OnClickBar(window, mouse, sound, fPosition, 200);
@@ -82,10 +81,12 @@ void CBar::RenderVolumeBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound
 	if (isFullBar)
 		OnFullBar(window, mouse, sound, volume, fPosition);
 
-	m_BarTextureOverLay = m_TextureBarHolder.get(TextureProperties::TEXTURE_BAR_LAYER);
+
+	TextureBarHolder& textureHolder = FileLoader::Instance().GetTextureBarHolder();
+	sf::Texture& buttonTexture = textureHolder.get(TextureProperties::TEXTURE_BAR_LAYER);
 
 
-	m_SpriteBarOverlay.setTexture(m_BarTextureOverLay);
+	m_SpriteBarOverlay.setTexture(buttonTexture);
 	m_SpriteBarOverlay.setPosition(fPosition.x - 2, fPosition.y - 8);
 	m_SpriteBarOverlay.setScale(1.0, 1.0);
 

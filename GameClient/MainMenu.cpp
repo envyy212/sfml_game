@@ -6,6 +6,10 @@
 #include "MouseModule.h"
 #include "Button.h"
 
+#include "uiSoundModule.h"
+#include "uiMusicModule.h"
+#include "DesignHelper.h"
+
 
 CMainMenu::CMainMenu(float Width, float Height)
 {
@@ -144,26 +148,37 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window, sf::Mouse& mouse, sf::So
 
     // Handle volume bar click event
 
-	sf::Vector2f barPos = sf::Vector2f(window.getSize().x / 1.7f, window.getSize().y / 2.8f);
-    float volume = sound.getVolume();
-    m_Bar.RenderVolumeBar(window, mouse, sound, volume, true, barPos);
-
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-	{
-		m_Bar.OnClickBar(window, mouse, sound, barPos, 200);
-	}
+	CBar bar;
 
 	sf::Vector2f barPoss = sf::Vector2f(window.getSize().x / 1.7f, window.getSize().y / 2.35f);
+	float volume = sound.getVolume();
 
-	sf::Music* pMusic = new sf::Music();
-
-	float fvolume = pMusic->getVolume();
-	m_MusicBar.RenderVolumeBar(window, mouse, sound, fvolume, true, barPoss);
+	bar.SetDesign(std::make_unique<CMusicModule>());
+	bar.RenderVolumeBar(window, mouse, sound, volume, true, barPoss); // Apply design for sound
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
-		m_MusicBar.OnClickBar(window, mouse, sound, barPoss, 200);
+		bar.OnClickBar(window, mouse, sound, barPoss, 200);
 	}
+
+//	sf::Vector2f barPos = sf::Vector2f(window.getSize().x / 1.7f, window.getSize().y / 2.8f);
+//    float volume = sound.getVolume();
+//    m_Bar.RenderVolumeBar(window, mouse, sound, volume, true, barPos);
+//
+//	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+//	{
+//		m_Bar.OnClickBar(window, mouse, sound, barPos, 200);
+//	}
+//
+//	sf::Vector2f barPoss = sf::Vector2f(window.getSize().x / 1.7f, window.getSize().y / 2.35f);
+//
+//	float fvolume = sound.getVolume();
+//	m_MusicBar.RenderVolumeBar(window, mouse, sound, fvolume, true, barPoss);
+//
+//	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+//	{
+//		m_MusicBar.OnClickBar(window, mouse, sound, barPoss, 200);
+//	}
 
     SetIndex(mainMenuIndex);
 }
@@ -315,8 +330,8 @@ void CMainMenu::GetDisplayedTimeHandle()
 
 	if (previousMinute != timeInfo->tm_min)
 	{
-		soundMgr.PlaySounds(SoundEffect::SOUND_TIME_BOOM);
-		soundMgr.PlaySounds(SoundEffect::SOUND_CLOCK_TICK);
+//		soundMgr.PlaySounds(SoundEffect::SOUND_TIME_BOOM);
+//		soundMgr.PlaySounds(SoundEffect::SOUND_CLOCK_TICK);
 		previousMinute = timeInfo->tm_min;
 		m_pMenu->displayMillisecondsStartTime = std::chrono::system_clock::now();
 	}

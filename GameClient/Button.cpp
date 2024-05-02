@@ -1,13 +1,6 @@
 #include "Button.h"
 #include "SoundManager.h"
 
-CButton::CButton()
-{
-	m_TextureHolder.load(TextureProperties::TEXTURE_BUTTON_NORMAL, "ui/keys/Outline/Double/normal/arrow_w.png");
-;	m_TextureHolder.load(TextureProperties::TEXTURE_BUTTON_OVER, "ui/keys/Outline/Double/over/arrow_w.png");
-	m_TextureHolder.load(TextureProperties::TEXTURE_BUTTON_CLICKED, "ui/keys/Outline/Double/pressed/arrow_w.png");
-}
-
 void CButton::MakeButton(sf::RenderWindow& window, sf::Vector2f posVec, float xStep, float yStep, float scaleX, float scaleY)
 {
 	if (xStep > 0.0f)
@@ -19,8 +12,10 @@ void CButton::MakeButton(sf::RenderWindow& window, sf::Vector2f posVec, float xS
 	m_buttonImage.setPosition(posVec.x, posVec.y);
 	m_buttonImage.setScale(scaleX, scaleY);
 
-	m_Texture = m_TextureHolder.get(TextureProperties::TEXTURE_BUTTON_NORMAL);
-	m_buttonImage.setTexture(m_Texture);
+	TextureHolder& textureHolder = FileLoader::Instance().GetTextureHolder();
+	sf::Texture& buttonTexture = textureHolder.get(TextureProperties::TEXTURE_BUTTON_NORMAL);
+
+	m_buttonImage.setTexture(buttonTexture);
 
 	sf::FloatRect localBounds = m_buttonImage.getLocalBounds();
 	m_buttonImage.setOrigin(localBounds.left + localBounds.width / 2.0f, localBounds.top + localBounds.height / 2.0f);
@@ -30,15 +25,19 @@ void CButton::MakeButton(sf::RenderWindow& window, sf::Vector2f posVec, float xS
 
 void CButton::OnDefaultButton(sf::RenderWindow& window, sf::Mouse mouse)
 {
-	m_Texture = m_TextureHolder.get(TextureProperties::TEXTURE_BUTTON_NORMAL);
-	m_buttonImage.setTexture(m_Texture);
+	TextureHolder& textureHolder = FileLoader::Instance().GetTextureHolder();
+	sf::Texture& buttonTexture = textureHolder.get(TextureProperties::TEXTURE_BUTTON_NORMAL);
+
+	m_buttonImage.setTexture(buttonTexture);
 	window.draw(m_buttonImage);
 }
 
 void CButton::OnOverButton(sf::RenderWindow& window, sf::Mouse mouse)
 {
-	m_Texture = m_TextureHolder.get(TextureProperties::TEXTURE_BUTTON_OVER);
-	m_buttonImage.setTexture(m_Texture);
+	TextureHolder& textureHolder = FileLoader::Instance().GetTextureHolder();
+	sf::Texture& buttonTexture = textureHolder.get(TextureProperties::TEXTURE_BUTTON_OVER);
+
+	m_buttonImage.setTexture(buttonTexture);
 	window.draw(m_buttonImage);
 }
 
@@ -47,7 +46,10 @@ void CButton::OnClickButton(sf::RenderWindow& window, sf::Mouse mouse)
 	CSoundManager* pSoundMgr = new CSoundManager;
 	pSoundMgr->PlaySounds(SoundEffect::SOUND_MENU_CLICK);
 
-	m_buttonImage.setTexture(static_cast<sf::Texture&>(m_TextureHolder.get(TextureProperties::TEXTURE_BUTTON_CLICKED)));
+	TextureHolder& textureHolder = FileLoader::Instance().GetTextureHolder();
+	sf::Texture& buttonTexture = textureHolder.get(TextureProperties::TEXTURE_BUTTON_CLICKED);
+
+	m_buttonImage.setTexture(buttonTexture);
 	window.draw(m_buttonImage);
 }
 

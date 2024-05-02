@@ -5,6 +5,7 @@
 #include "SoundManager.h"
 #include "TextModule.h"
 #include "MouseModule.h"
+#include "FileLoader.h"
 
 void CGame::Run()
 {
@@ -23,7 +24,13 @@ void CGame::Run()
 	sf::Mouse mouse;
 
 	std::unique_ptr<CSettingsModule> pModule = std::make_unique<CSettingsModule>();
+
 	pModule->ProccessData();
+
+	/* load all menu assets with start up as there are just few small ones */
+	FileLoader& loader = FileLoader::Instance();
+	loader.RegisterLoadingMenuProccess();
+	/* end loading */
 
 	sf::RenderWindow window(sf::VideoMode(m_sWidth, m_sHeight), "Survivor. v0.0.1", sf::Style::Fullscreen);
 

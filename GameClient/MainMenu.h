@@ -101,7 +101,7 @@ private:
 
 	CSoundManager soundMgr;
 private:
-	CBar m_Bar;
+	CBar m_Bar; 
 	CBar m_MusicBar;
 
 	uint16_t lastSetIndex;
