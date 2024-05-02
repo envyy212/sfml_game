@@ -133,8 +133,6 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window)
 
 		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
 			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_optionsTextVec[i].c_str(), TextProperties::TEXT_MEDIUM, 0, i*70);
-
-		txtModule->HandleClickEvent(window, mouse, mainMenuIndex);
 	}
 
 	float centerBtnX = window.getSize().x / 2.7f;
