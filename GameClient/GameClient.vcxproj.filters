@@ -31,13 +31,10 @@
     <ClCompile Include="MouseModule.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="GameStateHandle.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="Bar.cpp">
       <Filter>ui</Filter>
     </ClCompile>
-    <ClCompile Include="uiMusicModule.cpp">
+    <ClCompile Include="uiBar.cpp">
       <Filter>ui</Filter>
     </ClCompile>
     <ClCompile Include="uiSoundModule.cpp">
@@ -81,16 +78,10 @@
     <ClInclude Include="MouseModule.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="GameStateHandle.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="Bar.h">
       <Filter>ui</Filter>
     </ClInclude>
-    <ClInclude Include="DesignHelper.h">
-      <Filter>ui</Filter>
-    </ClInclude>
-    <ClInclude Include="uiMusicModule.h">
+    <ClInclude Include="uiBar.h">
       <Filter>ui</Filter>
     </ClInclude>
     <ClInclude Include="uiSoundModule.h">

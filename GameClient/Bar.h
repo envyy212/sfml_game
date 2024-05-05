@@ -1,41 +1,25 @@
 #pragma once
-#include "DesignHelper.h"
 #include "ResourceIdentifier.h"
 #include "SFML/Graphics/Sprite.hpp"
 
-#include "uiMusicModule.h"
+#include "uiBar.h"
 #include "uiSoundModule.h"
 #include "FileLoader.h"
 #include <iostream>
 
-class CBar
+class CBar 
 {
 public:
-	CBar();
+	CBar() = default;
 
-	void OnFullBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, float& volume, sf::Vector2f fPosition);
-	void OnDefaultBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Vector2f fPosition);
+	void OnFullBar(sf::RenderWindow& window, sf::Sound& sound, float& volume, sf::Vector2f fPosition);
+	void OnDefaultBar(sf::RenderWindow& window, sf::Vector2f fPosition);
 	void OnClickBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, sf::Vector2f barPosition, float barWidth);
 	void RenderVolumeBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, float& volume, bool isFullBar, sf::Vector2f fPosition);
 
-	void SetDesign(std::unique_ptr<CMusicModule> pDesign)
-	{
-		m_pMusicDesign = std::move(pDesign);
-	}
-
-	void OnFullBar(sf::RenderWindow& window, sf::Mouse& mouse, float volume, sf::Vector2f fPosition/*,CMusicModule& musicModule*/)
-	{
-		if (m_pMusicDesign)
-		{
-			m_pMusicDesign->applyDesign(window, fPosition, volume, m_SpriteBar, m_BarTexture/*,musicModule*/);
-		}
-	}
 
 private:
-	std::unique_ptr<CMusicModule> m_pMusicDesign;
-	sf::Sprite m_SpriteBar;
-	sf::Texture m_BarTexture;
-
+	std::unique_ptr<CuiBar>m_pBar = std::make_unique<CuiBar>();
 
 	TextureBarHolder m_TextureBarHolder;
 

@@ -13,7 +13,6 @@ void CGame::Run()
 	CSoundManager soundMgr;
 	sf::Keyboard keyboard;
 
-	sf::Sound sound;
 
 	TextModule* ctext = new TextModule;
 	if (!music.openFromFile("audio/BGM.flac"))
@@ -37,7 +36,7 @@ void CGame::Run()
 	CMainMenu* pMenu = new CMainMenu(window.getSize().x, window.getSize().y);
 
 	uint16_t currentMenuIndex = pMenu->GetLastSetIndex(); // Store the last set index value
-
+	sf::Sound sound;
 
 	while (window.isOpen())
 	{

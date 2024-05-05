@@ -7,10 +7,9 @@
 #include "Button.h"
 
 #include "uiSoundModule.h"
-#include "uiMusicModule.h"
-#include "DesignHelper.h"
+#include "uiBar.h"
 
-
+ 
 CMainMenu::CMainMenu(float Width, float Height)
 {
 	menuItemsVec = { "Play", "Options", "Ranking", "About", "Exit" };
@@ -116,8 +115,8 @@ void CMainMenu::BuildMenu(sf::RenderWindow& window)
 		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
 			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_BUTTON, menuItemsVec[i].c_str(), TextProperties::TEXT_LOWER_BIG, 0, i * 70);
 
-		sf::Text txt;
-		txt.setString(menuItemsVec[i].c_str());
+		sf::Text menuText;
+		menuText.setString(menuItemsVec[i].c_str());
 
 		txtModule->HandleClickEvent(window, mouse, index);
 	}
@@ -148,37 +147,28 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window, sf::Mouse& mouse, sf::So
 
     // Handle volume bar click event
 
-	CBar bar;
+	CBar volumeBar;
 
-	sf::Vector2f barPoss = sf::Vector2f(window.getSize().x / 1.7f, window.getSize().y / 2.35f);
-	float volume = sound.getVolume();
-
-	bar.SetDesign(std::make_unique<CMusicModule>());
-	bar.RenderVolumeBar(window, mouse, sound, volume, true, barPoss); // Apply design for sound
+	sf::Vector2f barPoss = sf::Vector2f(window.getSize().x / 1.7f, window.getSize().y / 2.35f); 
+	float volume = float(sound.getVolume());
+	std::cout << "BuildSettings menu " << volume << "\n";
+	volumeBar.RenderVolumeBar(window, mouse, sound, volume, true, barPoss);
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
-		bar.OnClickBar(window, mouse, sound, barPoss, 200);
+		volumeBar.OnClickBar(window, mouse, sound, barPoss, 200);
 	}
 
-//	sf::Vector2f barPos = sf::Vector2f(window.getSize().x / 1.7f, window.getSize().y / 2.8f);
-//    float volume = sound.getVolume();
-//    m_Bar.RenderVolumeBar(window, mouse, sound, volume, true, barPos);
-//
-//	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-//	{
-//		m_Bar.OnClickBar(window, mouse, sound, barPos, 200);
-//	}
-//
-//	sf::Vector2f barPoss = sf::Vector2f(window.getSize().x / 1.7f, window.getSize().y / 2.35f);
-//
-//	float fvolume = sound.getVolume();
-//	m_MusicBar.RenderVolumeBar(window, mouse, sound, fvolume, true, barPoss);
-//
-//	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-//	{
-//		m_MusicBar.OnClickBar(window, mouse, sound, barPoss, 200);
-//	}
+	CBar musicBar;
+	float musicVolume = float(music.getVolume());
+	sf::Vector2f muscibarPoss = sf::Vector2f(window.getSize().x / 1.7f, window.getSize().y / 2.7f);
+	musicBar.RenderVolumeBar(window, mouse, sound, musicVolume, true, muscibarPoss);
+	std::cout << musicVolume;
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+	{
+		musicBar.OnClickBar(window, mouse, sound, muscibarPoss, 200);
+	}
 
     SetIndex(mainMenuIndex);
 }
@@ -222,25 +212,25 @@ void CMainMenu::BuildRankingData(sf::RenderWindow& window)
 		playerRankingMap.insert(std::make_pair(pRanking->dwID, pRanking));
 	}
 
-	for (auto& it : playerRankingMap)
+	for (auto& [key, map] : playerRankingMap)
 	{
-		m_pPlayerRanking->textRankingRow[it.first].setCharacterSize(24);
-		m_pPlayerRanking->textRankingRow[it.first].setFont(m_pMenu->m_font);
-		m_pPlayerRanking->textRankingRow[it.first].setFillColor(sf::Color::White);
+		m_pPlayerRanking->textRankingRow[key].setCharacterSize(24);
+		m_pPlayerRanking->textRankingRow[key].setFont(m_pMenu->m_font);
+		m_pPlayerRanking->textRankingRow[key].setFillColor(sf::Color::White);
 
-		std::string rankString = std::to_string(it.first + 1);
+		std::string rankString = std::to_string(key + 1);
 
 		std::stringstream ss;
-		ss << rankString << std::setw(35) << it.second->playerNameStr[m_pPlayerRanking->playerNameStr.size()] << std::setw(35) << it.second->llPlayerScore;
+		ss << rankString << std::setw(35) << map->playerNameStr[m_pPlayerRanking->playerNameStr.size()] << std::setw(35) << map->llPlayerScore;
 
-		m_pPlayerRanking->textRankingRow[it.first].setString(ss.str());
+		m_pPlayerRanking->textRankingRow[key].setString(ss.str());
 
-		m_pPlayerRanking->textRankingRow[it.first].setPosition(
-			sf::Vector2f((window.getSize().x / 2.0f) - m_pPlayerRanking->textRankingRow[it.first].getLocalBounds().width / 2,
-				window.getSize().y / 2.5 + window.getSize().y / 20 * it.first)
+		m_pPlayerRanking->textRankingRow[key].setPosition(
+			sf::Vector2f((window.getSize().x / 2.0f) - m_pPlayerRanking->textRankingRow[key].getLocalBounds().width / 2,
+				window.getSize().y / 2.5 + window.getSize().y / 20 * key)
 		);
 
-		window.draw(m_pPlayerRanking->textRankingRow[it.first]);
+		window.draw(m_pPlayerRanking->textRankingRow[key]);
 	}
 }
 

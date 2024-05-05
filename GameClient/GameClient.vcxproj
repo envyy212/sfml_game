@@ -144,8 +144,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="FileLoader.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameStateHandle.cpp" />
-    <ClCompile Include="uiMusicModule.cpp" />
+    <ClCompile Include="uiBar.cpp" />
     <ClCompile Include="uiSoundModule.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
@@ -159,11 +158,9 @@
   <ItemGroup>
     <ClInclude Include="Bar.h" />
     <ClInclude Include="Button.h" />
-    <ClInclude Include="DesignHelper.h" />
     <ClInclude Include="FileLoader.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="GameStateHandle.h" />
-    <ClInclude Include="uiMusicModule.h" />
+    <ClInclude Include="uiBar.h" />
     <ClInclude Include="uiSoundModule.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="MainMenu.h" />

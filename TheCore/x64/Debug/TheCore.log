@@ -1,1 +1,5 @@
-﻿
+﻿  pch.cpp
+  GameStateHandle.cpp
+  TheCore.cpp
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\GameStateHandle.cpp(2,1): error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Generating Code...
