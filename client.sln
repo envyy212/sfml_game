@@ -11,6 +11,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TheCore", "TheCore\TheCore.vcxproj", "{8D032B7C-5D8E-42B7-B248-3DC0AA9AE189}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameClient", "GameClient\GameClient.vcxproj", "{039EEE69-EC6A-45B3-928A-A08E8FF371C7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8D032B7C-5D8E-42B7-B248-3DC0AA9AE189} = {8D032B7C-5D8E-42B7-B248-3DC0AA9AE189}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

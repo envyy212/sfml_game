@@ -6,6 +6,7 @@
 #include "TextModule.h"
 #include "MouseModule.h"
 #include "FileLoader.h"
+#include <TheCore/GameStateHandle.h>
 
 void CGame::Run()
 {
@@ -19,6 +20,9 @@ void CGame::Run()
 		return;
 	music.setVolume(80);
 	music.play();
+
+	GameStateHandle state;
+	state.test();
 
 	sf::Mouse mouse;
 

@@ -14,10 +14,10 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\GameClient\GameStateHandle.h">
+    <ClInclude Include="framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="framework.h">
+    <ClInclude Include="GameStateHandle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -28,7 +28,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\GameClient\GameStateHandle.cpp">
+    <ClCompile Include="GameStateHandle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

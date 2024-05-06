@@ -4,6 +4,7 @@
 class GameStateHandle
 {
 public:
+	void test();
 	GameStateHandle();
 };
 

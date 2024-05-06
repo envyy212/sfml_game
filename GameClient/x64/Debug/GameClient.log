@@ -1,4 +1,59 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Game.vcxproj, sfml_snake.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Bar.cpp
+  Button.cpp
+  FileLoader.cpp
+  Game.cpp
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,71): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,71): warning C4244:         with
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,71): warning C4244:         [
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,71): warning C4244:             T=unsigned int
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,71): warning C4244:         ]
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,51): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,51): warning C4244:         with
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,51): warning C4244:         [
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,51): warning C4244:             T=unsigned int
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,51): warning C4244:         ]
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(15,15): warning C4101: 'keyboard': unreferenced local variable
+  uiBar.cpp
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:         with
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:         [
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:             T=int
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:         ]
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:         and
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:         [
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:             T=float
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:         ]
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:         with
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:         [
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:             T=int
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:         ]
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:         and
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:         [
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:             T=float
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:         ]
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:         with
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:         [
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:             T=int
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:         ]
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:         and
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:         [
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:             T=float
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:         ]
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:         with
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:         [
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:             T=int
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:         ]
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:         and
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:         [
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:             T=float
+C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:         ]
+  uiSoundModule.cpp
+  Log.cpp
+  main.cpp
   MainMenu.cpp
 C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(45,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
 C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(45,52): warning C4244:         with
@@ -49,4 +104,11 @@ C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(298,42):
 C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(298,30): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(303,52): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(303,38): warning C4305: 'argument': truncation from 'double' to 'float'
-  GameClient.vcxproj -> C:\Users\Admin\source\repos\learning\sfml_snake\x64\Debug\GameClient.exe
+  MouseModule.cpp
+  SettingsModule.cpp
+  SoundManager.cpp
+  TextModule.cpp
+  TimeManager.cpp
+  Generating Code...
+Game.obj : error LNK2019: unresolved external symbol "public: __cdecl GameStateHandle::GameStateHandle(void)" (??0GameStateHandle@@QEAA@XZ) referenced in function "public: void __cdecl CGame::Run(void)" (?Run@CGame@@QEAAXXZ)
+C:\Users\Admin\source\repos\learning\sfml_snake\x64\Debug\GameClient.exe : fatal error LNK1120: 1 unresolved externals
