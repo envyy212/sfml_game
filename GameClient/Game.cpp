@@ -1,78 +1,96 @@
 #include "Game.h"
 #include "SettingsModule.h"
-#include "MainMenu.h"
-#include <SFML/Audio.hpp>
-#include "SoundManager.h"
-#include "TextModule.h"
-#include "MouseModule.h"
 #include "FileLoader.h"
-#include <TheCore/GameStateHandle.h>
+
+CGame::CGame()
+{
+	FileLoader& loader = FileLoader::Instance();
+	loader.RegisterLoadingMenuProccess();
+
+	InitWindow();
+	InitMenu();
+
+	m_pMusic = std::make_unique<sf::Music>();
+//	m_pText = std::make_unique<TextModule>();
+
+	if (!m_pMusic->openFromFile("audio/BGM.flac"))
+		return;
+	m_pMusic->setVolume(80);
+	m_pMusic->play();
+}
+
+CGame::~CGame()
+{
+}
 
 void CGame::Run()
 {
-	sf::Music music;
-	CSoundManager soundMgr;
-	sf::Keyboard keyboard;
 
+	/* load all menu assets with start up as there are just few small ones */
 
-	TextModule* ctext = new TextModule;
-	if (!music.openFromFile("audio/BGM.flac"))
-		return;
-	music.setVolume(80);
-	music.play();
+	while (m_pWindow->isOpen())
+	{
+		Update();
+		Render();
+	}
+}
 
+void CGame::InitMenu()
+{
+	m_pMenu = std::make_unique<CMainMenu>(1920.0f, 1080.0f);
+}
+
+void CGame::InitWindow()
+{
+	m_pWindow = std::make_unique<sf::RenderWindow>(sf::VideoMode(1920, 1080), "Survivor. v0.0.1", sf::Style::Fullscreen);
+}
+
+void CGame::RegisterState()
+{
+//	this->m_stackStates.push();
+}
+
+void CGame::Render()
+{
+	m_pWindow->clear();
+	m_pMenu->MakeWindow(*m_pWindow, m_mouse, m_pSound, *m_pMusic, currentMenuIndex);
+	currentMenuIndex = m_pMenu->GetLastSetIndex();
+	m_pWindow->display();
+}
+
+void CGame::Update()
+{
+	UpdateEvents();
+}
+
+void CGame::UpdateEvents()
+{
 	GameStateHandle state;
 	state.test();
 
-	sf::Mouse mouse;
-
-	std::unique_ptr<CSettingsModule> pModule = std::make_unique<CSettingsModule>();
-
-	pModule->ProccessData();
-
-	/* load all menu assets with start up as there are just few small ones */
-	FileLoader& loader = FileLoader::Instance();
-	loader.RegisterLoadingMenuProccess();
-	/* end loading */
-
-	sf::RenderWindow window(sf::VideoMode(m_sWidth, m_sHeight), "Survivor. v0.0.1", sf::Style::Fullscreen);
-
-	CMainMenu* pMenu = new CMainMenu(window.getSize().x, window.getSize().y);
-
-	uint16_t currentMenuIndex = pMenu->GetLastSetIndex(); // Store the last set index value
-	sf::Sound sound;
-
-	while (window.isOpen())
+	while (m_pWindow->pollEvent(m_event))
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
+		if (m_event.type == sf::Event::Closed)
 		{
-			if (event.type == sf::Event::Closed)
+			m_pWindow->close();
+		}
+		else if (m_event.type == sf::Event::MouseButtonPressed)
+		{
+//			m_pText->HandleClickEvent(*m_pWindow, m_mouse, currentMenuIndex); // Update the index value when a button is clicked
+		}
+		else if (m_event.type == sf::Event::KeyPressed)
+		{
+			if (m_event.key.code == sf::Keyboard::Key::Up)
 			{
-				window.close();
+				m_pMenu->MoveDirection(static_cast<uint16_t>(sf::Keyboard::Key::Up));
 			}
-			else if (event.type == sf::Event::MouseButtonPressed)
+			else if (m_event.key.code == sf::Keyboard::Key::Down)
 			{
-				ctext->HandleClickEvent(window, mouse, currentMenuIndex); // Update the index value when a button is clicked
-			}
-			else if (event.type == sf::Event::KeyPressed)
-			{
-				if (event.key.code == sf::Keyboard::Key::Up)
-				{
-					pMenu->MoveDirection(static_cast<uint16_t>(sf::Keyboard::Key::Up));
-				}
-				else if (event.key.code == sf::Keyboard::Key::Down)
-				{
-					pMenu->MoveDirection(static_cast<uint16_t>(sf::Keyboard::Key::Down));
-				}
+				m_pMenu->MoveDirection(static_cast<uint16_t>(sf::Keyboard::Key::Down));
 			}
 		}
-
-		window.clear();
-		pMenu->MakeWindow(window, mouse, sound, music, currentMenuIndex);
-		currentMenuIndex = pMenu->GetLastSetIndex();
-		window.display();
 	}
 }
+
 
 /* register game state */

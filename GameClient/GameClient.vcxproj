@@ -145,15 +145,15 @@
     <ClCompile Include="FileLoader.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="uiBar.cpp" />
-    <ClCompile Include="uiSoundModule.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MouseModule.cpp" />
     <ClCompile Include="SettingsModule.cpp" />
-    <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="SoundModule.cpp" />
     <ClCompile Include="TextModule.cpp" />
     <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="uiSoundModule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bar.h" />
@@ -161,16 +161,16 @@
     <ClInclude Include="FileLoader.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="uiBar.h" />
-    <ClInclude Include="uiSoundModule.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MouseModule.h" />
     <ClInclude Include="ResourceIdentifier.h" />
     <ClInclude Include="ResourceHolder.h" />
     <ClInclude Include="SettingsModule.h" />
-    <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="SoundModule.h" />
     <ClInclude Include="TextModule.h" />
     <ClInclude Include="TimeManager.h" />
+    <ClInclude Include="uiSoundModule.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ResourceHolderInc.h" />

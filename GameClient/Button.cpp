@@ -1,5 +1,5 @@
 #include "Button.h"
-#include "SoundManager.h"
+#include "SoundModule.h"
 
 void CButton::MakeButton(sf::RenderWindow& window, sf::Vector2f posVec, float xStep, float yStep, float scaleX, float scaleY)
 {
@@ -43,8 +43,9 @@ void CButton::OnOverButton(sf::RenderWindow& window, sf::Mouse mouse)
 
 void CButton::OnClickButton(sf::RenderWindow& window, sf::Mouse mouse)
 {
-	CSoundManager* pSoundMgr = new CSoundManager;
-	pSoundMgr->PlaySounds(SoundEffect::SOUND_MENU_CLICK);
+	std::unique_ptr<CSoundModule> pSoundModule = std::make_unique<CSoundModule>();
+
+	pSoundModule->PlaySounds(SoundEffect::SOUND_MENU_CLICK);
 
 	TextureHolder& textureHolder = FileLoader::Instance().GetTextureHolder();
 	sf::Texture& buttonTexture = textureHolder.get(TextureProperties::TEXTURE_BUTTON_CLICKED);

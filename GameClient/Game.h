@@ -1,41 +1,66 @@
 #pragma once
-#include <SFML/Window.hpp>
+
 #include <iostream>
-#include "SoundManager.h"
+#include <stack>
+#include <vector>
+#include <unordered_map>
+
+#include "MainMenu.h"
+#include "SoundModule.h"
+//#include "TextModule.h"
+
+#include <SFML/Window.hpp>
+#include <SFML/Audio/Sound.hpp>
+#include <SFML/Audio/Music.hpp>
+
+#include <TheCore/GameStateHandle.h>
+
 
 class CGame
 {
 public:
-	CGame()
-	{
-		m_bState = false;
-		m_sHeight = static_cast<uint16_t>(WindowConfig::WINDOW_MAX_HEIGHT);
-		m_sWidth = static_cast<uint16_t>(WindowConfig::WINDOW_MAX_WIDTH);
-	}
-	~CGame()
-	{
-
-	}
+	CGame();
+	~CGame();
 
 	void Run();
-	void ProcessSettingsInput();
 
-	inline uint16_t GetWidth() { return m_sWidth; }
-	inline uint16_t GetHeight() { return m_sHeight; }
+	inline const uint16_t GetWidth() const { return m_sWidth; }
+	inline const uint16_t GetHeight() const { return m_sHeight; }
 
 	inline void SetWidth(uint16_t Width) { m_sWidth = Width; }
 	inline void SetHeight(uint16_t Height) { m_sHeight = Height; }
-	void SetIndex(uint16_t index) { m_selectedIndex = index; }
-	uint16_t GetIndex() { return m_selectedIndex; }
-	/* mby overload this */
-	enum class WindowConfig
-	{
-		WINDOW_MAX_WIDTH = 1920,
-		WINDOW_MAX_HEIGHT = 1080,
-	};
+	inline void SetIndex(uint16_t index) { m_selectedIndex = index; }
+	inline const uint16_t GetIndex() const { return m_selectedIndex; }
+
+public: 
+	void RegisterState();
+	void Render();
+	void Update();
+	void UpdateEvents();
+
+	void InitWindow();
+	void InitMenu();
+
+	std::stack<GameStateHandle*> m_stackStates;
 private:
-	uint16_t m_selectedIndex;
-	bool m_bState;
+	std::unique_ptr<CMainMenu> m_pMenu; // Explicitly specify the type here
+
+//	std::unique_ptr<TextModule> m_pText;
+	std::unique_ptr<sf::RenderWindow> m_pWindow;
+	std::unique_ptr<sf::Music> m_pMusic;
+
+	/* sf:: */
+
+
+	sf::Mouse m_mouse;
+	sf::Event m_event;
+	sf::Sound m_pSound;
+private:
+	/* window and menu */
+
 	uint16_t m_sHeight;
 	uint16_t m_sWidth;
+
+	uint16_t m_selectedIndex;
+	uint16_t currentMenuIndex;
 };

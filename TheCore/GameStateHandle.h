@@ -4,7 +4,10 @@
 class GameStateHandle
 {
 public:
-	GameStateHandle();
+	GameStateHandle() = default;
+	virtual ~GameStateHandle();
+
 	void test();
 };
 
+ 

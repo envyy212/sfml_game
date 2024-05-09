@@ -16,7 +16,7 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>ui</Filter>
     </ClCompile>
-    <ClCompile Include="SoundManager.cpp">
+    <ClCompile Include="SoundModule.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="TimeManager.cpp">
@@ -37,10 +37,10 @@
     <ClCompile Include="uiBar.cpp">
       <Filter>ui</Filter>
     </ClCompile>
-    <ClCompile Include="uiSoundModule.cpp">
-      <Filter>ui</Filter>
-    </ClCompile>
     <ClCompile Include="FileLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="uiSoundModule.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -57,7 +57,7 @@
     <ClInclude Include="MainMenu.h">
       <Filter>ui</Filter>
     </ClInclude>
-    <ClInclude Include="SoundManager.h">
+    <ClInclude Include="SoundModule.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="TimeManager.h">
@@ -84,10 +84,10 @@
     <ClInclude Include="uiBar.h">
       <Filter>ui</Filter>
     </ClInclude>
-    <ClInclude Include="uiSoundModule.h">
-      <Filter>ui</Filter>
-    </ClInclude>
     <ClInclude Include="FileLoader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="uiSoundModule.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

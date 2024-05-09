@@ -1,114 +1,592 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Game.vcxproj, sfml_snake.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Game.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Bar.cpp
   Button.cpp
   FileLoader.cpp
   Game.cpp
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,71): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,71): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,71): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,71): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,71): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,51): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,51): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,51): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,51): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(40,51): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\Game.cpp(15,15): warning C4101: 'keyboard': unreferenced local variable
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(81,19): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(81,19): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(81,19): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(81,19): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(82,19): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(82,19): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(82,19): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(82,19): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(83,19): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(83,19): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(83,19): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(83,19): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(84,19): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(84,19): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(84,19): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(84,19): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(114,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(114,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(114,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(114,21): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(115,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(115,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(115,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(115,21): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(116,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(116,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(116,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(116,21): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(117,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(117,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(117,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(117,21): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(120,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(120,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(120,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(120,21): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(121,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(121,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(121,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(121,21): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(122,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(122,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(122,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(122,21): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(123,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(123,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(123,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(123,21): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(126,26): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(126,26): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(126,26): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(126,26): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(127,26): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(127,26): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(127,26): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(127,26): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(128,26): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(128,26): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(128,26): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(128,26): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(129,26): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(129,26): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(129,26): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'Game.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(129,26): message : error recovery skipped: ')'
+  (compiling source file 'Game.cpp')
+  
   uiBar.cpp
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:             T=int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:         and
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,84): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:             T=int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:         and
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(38,58): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:             T=int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:         and
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,84): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:             T=int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:         and
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\uiBar.cpp(103,58): warning C4244:         ]
-  uiSoundModule.cpp
   Log.cpp
   main.cpp
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(81,19): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(81,19): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(81,19): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(81,19): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(82,19): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(82,19): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(82,19): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(82,19): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(83,19): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(83,19): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(83,19): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(83,19): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(84,19): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(84,19): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(84,19): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(84,19): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(114,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(114,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(114,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(114,21): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(115,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(115,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(115,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(115,21): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(116,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(116,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(116,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(116,21): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(117,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(117,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(117,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(117,21): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(120,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(120,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(120,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(120,21): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(121,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(121,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(121,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(121,21): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(122,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(122,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(122,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(122,21): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(123,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(123,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(123,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(123,21): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(126,26): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(126,26): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(126,26): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(126,26): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(127,26): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(127,26): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(127,26): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(127,26): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(128,26): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(128,26): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(128,26): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(128,26): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(129,26): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(129,26): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(129,26): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'main.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(129,26): message : error recovery skipped: ')'
+  (compiling source file 'main.cpp')
+  
   MainMenu.cpp
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(45,52): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(45,52): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(45,52): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(45,52): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(45,52): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(49,105): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(49,105): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(49,105): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(49,105): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(49,105): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(49,50): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(49,50): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(49,50): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(49,50): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(49,50): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(53,53): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(53,53): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(53,53): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(53,53): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(53,53): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(116,128): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(107,14): warning C4101: 'mousemodule': unreferenced local variable
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(136,23): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(136,23): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(136,23): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(136,23): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(136,23): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(139,138): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(186,125): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(230,30): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(230,30): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(230,30): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(230,30): warning C4244:             T=float
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(230,30): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(244,17): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(244,17): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(244,17): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(244,17): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(244,17): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(267,33): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(267,33): warning C4244:         with
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(267,33): warning C4244:         [
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(267,33): warning C4244:             T=unsigned int
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(267,33): warning C4244:         ]
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(279,33): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(298,42): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(298,30): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(303,52): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Admin\source\repos\learning\sfml_snake\GameClient\MainMenu.cpp(303,38): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(81,19): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(81,19): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(81,19): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(81,19): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(82,19): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(82,19): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(82,19): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(82,19): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(83,19): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(83,19): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(83,19): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(83,19): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(84,19): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(84,19): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(84,19): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(84,19): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(114,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(114,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(114,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(114,21): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(115,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(115,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(115,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(115,21): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(116,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(116,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(116,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(116,21): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(117,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(117,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(117,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(117,21): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(120,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(120,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(120,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(120,21): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(121,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(121,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(121,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(121,21): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(122,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(122,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(122,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(122,21): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(123,21): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(123,21): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(123,21): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(123,21): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(126,26): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(126,26): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(126,26): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(126,26): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(127,26): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(127,26): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(127,26): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(127,26): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(128,26): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(128,26): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(128,26): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(128,26): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(129,26): error C2589: '(': illegal token on right side of '::'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(129,26): error C2760: syntax error: ')' was unexpected here; expected ';'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(129,26): error C3878: syntax error: unexpected token ')' following 'expression_statement'
+  (compiling source file 'MainMenu.cpp')
+  
+C:\Users\Admin\source\repos\learning\sfml_game\Dependencies\include\SFML\Graphics\Rect.inl(129,26): message : error recovery skipped: ')'
+  (compiling source file 'MainMenu.cpp')
+  
   MouseModule.cpp
   SettingsModule.cpp
-  SoundManager.cpp
+  SoundModule.cpp
   TextModule.cpp
   TimeManager.cpp
+  uiSoundModule.cpp
   Generating Code...
-Game.obj : error LNK2019: unresolved external symbol "public: __cdecl GameStateHandle::GameStateHandle(void)" (??0GameStateHandle@@QEAA@XZ) referenced in function "public: void __cdecl CGame::Run(void)" (?Run@CGame@@QEAAXXZ)
-C:\Users\Admin\source\repos\learning\sfml_snake\x64\Debug\GameClient.exe : fatal error LNK1120: 1 unresolved externals

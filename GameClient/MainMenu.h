@@ -1,15 +1,16 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include <map>
 #include <windows.h>
 #include <chrono>
+
+#include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Window/Window.hpp>
-#include "SoundManager.h"
+
+#include "SoundModule.h"
 #include "TextModule.h"
-#include "Game.h"
 #include "Bar.h"
 
 enum ePageState
@@ -62,10 +63,7 @@ class CMainMenu
 {
 public:
 	CMainMenu(float Width, float Height);
-	~CMainMenu() {
-		delete txtModule;
-		txtModule = nullptr;
-	};
+	~CMainMenu() = default;
 
 	uint16_t GetSelectedItemIndex();
 	uint16_t GetSelectedPageIndex();
@@ -85,7 +83,7 @@ public:
 	void BuildVersionText(sf::RenderWindow& window);
 
 	void SetIndex(uint16_t index) { lastSetIndex = index; }
-	uint16_t GetLastSetIndex();
+	uint16_t GetLastSetIndex() const;
 
 private:
 	std::unique_ptr<TMainMenu> m_pMenu = std::make_unique<TMainMenu>();
@@ -99,7 +97,7 @@ private:
 	sf::Text m_timeText;
 	sf::Text m_millisecondsText;
 
-	CSoundManager soundMgr;
+	std::unique_ptr<CSoundModule> m_pSoundModule;
 private:
 	CBar m_Bar; 
 	CBar m_MusicBar;
@@ -131,6 +129,6 @@ private:
 	std::vector<std::string> m_aboutTextVec;
 	sf::Text m_RankingHeaderText[3];
 	std::map<uint64_t, TPlayerRanking*> playerRankingMap;
-	TextModule* txtModule;
+	std::unique_ptr<TextModule> m_pTextModule;
 };
 

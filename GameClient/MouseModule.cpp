@@ -1,6 +1,5 @@
 #include "MouseModule.h"
 #include "TextModule.h"
-#include "MainMenu.h"
 
 void MouseModule::HandleMouseClick(sf::RenderWindow& window, sf::Text& text, std::function<void(void)> funcToCall)
 {

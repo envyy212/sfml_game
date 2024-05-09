@@ -1,12 +1,11 @@
-#include "MainMenu.h"
-#include "Log.h"
 #include <iomanip>
 #include <ctime>
 #include <sstream>
+
+#include "MainMenu.h"
+#include "Log.h"
 #include "MouseModule.h"
 #include "Button.h"
-
-#include "uiSoundModule.h"
 #include "uiBar.h"
 
  
@@ -26,7 +25,8 @@ CMainMenu::CMainMenu(float Width, float Height)
 		"It has survived not only five centuries, ",
 		"but also the leap into electronic typesetting, remaining essentially unchanged."};
 
-	txtModule = new TextModule;
+	m_pTextModule = std::make_unique<TextModule>();
+	m_pSoundModule = std::make_unique<CSoundModule>();
 
 //	PlayerRanking* m_pPlayerRanking = new PlayerRanking(); // Allocate memory for a PlayerRanking instance
 //	std::map<unsigned int, PlayerRanking*> playerRankingMap;
@@ -42,15 +42,15 @@ CMainMenu::CMainMenu(float Width, float Height)
 
 	imageSprite2.setTexture(img2);
 	imageSprite2.setScale(sf::Vector2f(4.5f, 1.0f));
-	imageSprite2.setPosition(sf::Vector2f(Width / 2.4 - imageSprite2.getLocalBounds().width / 2, Height / 5 - imageSprite2.getLocalBounds().height / 2));
+	imageSprite2.setPosition(sf::Vector2f(Width / 2.4f - imageSprite2.getLocalBounds().width / 2.0f, Height / 5.0f - imageSprite2.getLocalBounds().height / 2.0f));
 
 	imageSprite.setTexture(image);
 	imageSprite.setScale(sf::Vector2f(1.0f, 1.0f));
-	imageSprite.setPosition(sf::Vector2f(Width/1.50 - imageSprite.getLocalBounds().width / 2, Height/ 4.53 - imageSprite.getLocalBounds().height/2));
+	imageSprite.setPosition(sf::Vector2f(Width/1.50f - imageSprite.getLocalBounds().width / 2.0f, Height/ 4.53f - imageSprite.getLocalBounds().height / 2.0f));
 
 	imageSprite1.setTexture(img1);
 	imageSprite1.setScale(sf::Vector2f(1.0f, 1.0f));
-	imageSprite1.setPosition(sf::Vector2f(Width / 2.65 - imageSprite1.getLocalBounds().width / 2, Height / 5 - imageSprite.getLocalBounds().height / 2));
+	imageSprite1.setPosition(sf::Vector2f(Width / 2.65f - imageSprite1.getLocalBounds().width / 2.0f, Height / 5.0f - imageSprite.getLocalBounds().height / 2.0f));
 	imageSprite.setRotation(180);
 
 	/* always displayed items in constructor - the rest is handled by page states */
@@ -69,7 +69,6 @@ void CMainMenu::MakeWindow(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound
 	window.draw(m_timeText);
 
 	window.draw(m_millisecondsText);
-
 
 	window.draw(imageSprite);
 	window.draw(imageSprite1);
@@ -104,21 +103,20 @@ void CMainMenu::DisplayMenuByPageIndex(sf::RenderWindow& window, sf::Mouse& mous
 
 void CMainMenu::BuildMenu(sf::RenderWindow& window)
 {
-	MouseModule mousemodule;
 	uint16_t index = GetLastSetIndex();
 
 	for (int i = 0; i < menuItemsVec.size(); i++)
 	{
-		float centerX = (window.getSize().x / 2.0f) - (txtModule->GetBoundingBoxFromStrings(menuItemsVec).width / 2.0f);
+		float centerX = (window.getSize().x / 2.0f) - (m_pTextModule->GetBoundingBoxFromStrings(menuItemsVec).width / 2.0f);
 		float centerY = (window.getSize().y / 3.0f + window.getSize().y / 18.0f);
 
-		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
-			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_BUTTON, menuItemsVec[i].c_str(), TextProperties::TEXT_LOWER_BIG, 0, i * 70);
+		m_pTextModule->WriteText(window, sf::Vector2f(centerX, centerY),
+			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_BUTTON, menuItemsVec[i].c_str(), TextProperties::TEXT_LOWER_BIG, 0, i * 70.0f);
 
 		sf::Text menuText;
 		menuText.setString(menuItemsVec[i].c_str());
 
-		txtModule->HandleClickEvent(window, mouse, index);
+		m_pTextModule->HandleClickEvent(window, mouse, index);
 	}
 	SetIndex(index);
 }
@@ -132,11 +130,11 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window, sf::Mouse& mouse, sf::So
     for (int i = 0; i < m_optionsTextVec.size(); i++)
     {
         // Render menu options
-        float centerX = (window.getSize().x / 2.0f) - (txtModule->GetBoundingBoxFromStrings(menuItemsVec).width / 2.0f);
-        float centerY = (window.getSize().y / 3 + window.getSize().y / 20);
+        float centerX = (window.getSize().x / 2.0f) - (m_pTextModule->GetBoundingBoxFromStrings(menuItemsVec).width / 2.0f);
+        float centerY = (window.getSize().y / 3.0f + window.getSize().y / 20.0f);
 
-        txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
-            TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_optionsTextVec[i].c_str(), TextProperties::TEXT_MEDIUM, 0, i * 70);
+		m_pTextModule->WriteText(window, sf::Vector2f(centerX, centerY),
+            TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_optionsTextVec[i].c_str(), TextProperties::TEXT_MEDIUM, 0, i * 70.0f);
     }
 
     // Create and handle button click event
@@ -182,10 +180,10 @@ void CMainMenu::BuildRanking(sf::RenderWindow& window)
 		float centerX = (window.getSize().x / 3.0f);
 		float centerY = window.getSize().y / 3.5f;
 
-		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
-			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_rankingTextVec[i].c_str(), TextProperties::TEXT_MEDIUM, i*319, 0);
+		m_pTextModule->WriteText(window, sf::Vector2f(centerX, centerY),
+			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_rankingTextVec[i].c_str(), TextProperties::TEXT_MEDIUM, i*319.0f, 0);
 
-		txtModule->PerformTextEventByMouseAction(window, mouse, keyboard);
+		m_pTextModule->PerformTextEventByMouseAction(window, mouse, keyboard);
 	}
 	uint16_t index = GetLastSetIndex();
 
@@ -226,8 +224,8 @@ void CMainMenu::BuildRankingData(sf::RenderWindow& window)
 		m_pPlayerRanking->textRankingRow[key].setString(ss.str());
 
 		m_pPlayerRanking->textRankingRow[key].setPosition(
-			sf::Vector2f((window.getSize().x / 2.0f) - m_pPlayerRanking->textRankingRow[key].getLocalBounds().width / 2,
-				window.getSize().y / 2.5 + window.getSize().y / 20 * key)
+			sf::Vector2f((window.getSize().x / 2.0f) - m_pPlayerRanking->textRankingRow[key].getLocalBounds().width / 2.0f,
+				window.getSize().y / 2.5f + window.getSize().y / 20.0f * key)
 		);
 
 		window.draw(m_pPlayerRanking->textRankingRow[key]);
@@ -240,10 +238,10 @@ void CMainMenu::BuildAbout(sf::RenderWindow& window)
 
 	for (int i = 0; i < m_aboutTextVec.size(); i++)
 	{
-		float centerX = (window.getSize().x / 2.0f) - (txtModule->GetBoundingBoxFromStrings(m_aboutTextVec).width / 2.0f);
-		float centerY = window.getSize().y / 3 + window.getSize().y / 20 * i;
+		float centerX = (window.getSize().x / 2.0f) - (m_pTextModule->GetBoundingBoxFromStrings(m_aboutTextVec).width / 2.0f);
+		float centerY = window.getSize().y / 3.0f + window.getSize().y / 20.0f * i;
 
-		txtModule->WriteText(window, sf::Vector2f(centerX, centerY),
+		m_pTextModule->WriteText(window, sf::Vector2f(centerX, centerY),
 			TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, m_aboutTextVec[i].c_str(), TextProperties::TEXT_SMALL, 0, 0);
 	}
 	uint16_t mainMenuIndex = GetLastSetIndex();
@@ -264,9 +262,9 @@ void CMainMenu::BuildBackgroundText(sf::RenderWindow& window)
 	std::string applicationName = "Survivor.";
 
 	m_centerX = window.getSize().x / 2.0f;
-	m_centerY = window.getSize().y / 8;
+	m_centerY = window.getSize().y / 8.0f;
 
-	txtModule->WriteText(window, sf::Vector2f(m_centerX, m_centerY),
+	m_pTextModule->WriteText(window, sf::Vector2f(m_centerX, m_centerY),
 	TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, applicationName.c_str(), TextProperties::TEXT_LARGE, 0, 0);
 	/*app name*/
 }
@@ -276,9 +274,9 @@ void CMainMenu::BuildVersionText(sf::RenderWindow& window)
 	/*version*/
 	std::string version = "2024-04-266:42 v0.0.1 - https://github.com/xd12564/";
 	m_centerX = window.getSize().x / 8.0f;
-	m_centerY = window.getSize().y / 1.015;
+	m_centerY = window.getSize().y / 1.015f;
 
-	txtModule->WriteText(window, sf::Vector2f(m_centerX, m_centerY),
+	m_pTextModule->WriteText(window, sf::Vector2f(m_centerX, m_centerY),
 		TextProperties::TEXT_FONT_ARIAL, TextProperties::TEXT_NORMAL, version.c_str(), TextProperties::TEXT_EXTRA_SMALL, 0, 0);
 	/*version*/
 }
@@ -295,12 +293,12 @@ void CMainMenu::GetDisplayedTimeHandle()
 	m_timeText.setFont(m_pMenu->m_timeFont);
 	m_timeText.setCharacterSize(48);
 	m_timeText.setFillColor(sf::Color::Red);
-	m_timeText.setPosition(1920 / 1.7, 1080 / 1.1);
+	m_timeText.setPosition(1920.0f / 1.7f, 1080.0f / 1.1f);
 
 	m_millisecondsText.setFont(m_pMenu->m_timeFont);
 	m_millisecondsText.setCharacterSize(36);
 	m_millisecondsText.setFillColor(sf::Color::Red);
-	m_millisecondsText.setPosition(1920 / 1.080, 1080 / 1.085);
+	m_millisecondsText.setPosition(1920.0f / 1.080f, 1080.0f / 1.085f);
 	 
 	std::time_t currentTime = std::time(nullptr);
 	std::tm* timeInfo = std::localtime(&currentTime);
@@ -320,8 +318,8 @@ void CMainMenu::GetDisplayedTimeHandle()
 
 	if (previousMinute != timeInfo->tm_min)
 	{
-//		soundMgr.PlaySounds(SoundEffect::SOUND_TIME_BOOM);
-//		soundMgr.PlaySounds(SoundEffect::SOUND_CLOCK_TICK);
+		m_pSoundModule->PlaySounds(SoundEffect::SOUND_TIME_BOOM);
+		m_pSoundModule->PlaySounds(SoundEffect::SOUND_CLOCK_TICK);
 		previousMinute = timeInfo->tm_min;
 		m_pMenu->displayMillisecondsStartTime = std::chrono::system_clock::now();
 	}
@@ -340,7 +338,7 @@ void CMainMenu::GetDisplayedTimeHandle()
 	}
 }
 
-uint16_t CMainMenu::GetLastSetIndex()
+uint16_t CMainMenu::GetLastSetIndex() const
 {
 
 	if (!lastSetIndex)

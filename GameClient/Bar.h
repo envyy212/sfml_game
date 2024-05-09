@@ -3,7 +3,6 @@
 #include "SFML/Graphics/Sprite.hpp"
 
 #include "uiBar.h"
-#include "uiSoundModule.h"
 #include "FileLoader.h"
 #include <iostream>
 

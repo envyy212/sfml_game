@@ -2,14 +2,14 @@
 #include "SFML/Audio/Sound.hpp"
 #include "FileLoader.h"
 
-class CSoundModule
+class CuiSoundModule
 {
 public:
-	CSoundModule() : m_Sound(nullptr) {};
+	CuiSoundModule() : m_Sound(nullptr) {};
 
-	CSoundModule(sf::Sound* sound) : m_Sound(sound) {}
+	CuiSoundModule(sf::Sound* sound) : m_Sound(sound) {}
 
-	~CSoundModule()
+	~CuiSoundModule()
 	{
 		delete m_Sound;
 	}

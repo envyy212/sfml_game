@@ -13,7 +13,7 @@ void CuiBar::SetFullVolumeBar(sf::RenderWindow& window, sf::Vector2f fPosition, 
 
 	m_SpriteBar.setScale(scale / 100.0f, 1.0f);
 
-	sf::IntRect textureRect(0, 0, static_cast<int>(scale * m_Texture.getSize().x / 100), m_Texture.getSize().y);//1% of volume corresponds to 2.66 pixels
+	sf::IntRect textureRect(0, 0, static_cast<int>(scale / 100 * 2.66), m_Texture.getSize().y);//1% of volume corresponds to 2.66 pixels
 	m_SpriteBar.setTextureRect(textureRect);
 
 	window.draw(m_SpriteBar);
@@ -35,7 +35,7 @@ void CuiBar::OnClickVolumeBar(sf::RenderWindow& window, sf::Mouse& mouse,sf::Sou
 
 	sf::Vector2i windowPos = window.getPosition();
 	sf::Vector2i mousePos = mouse.getPosition();
-	sf::Vector2f relativeMousePos = sf::Vector2f(mousePos.x - windowPos.x, mousePos.y - windowPos.y);
+	sf::Vector2f relativeMousePos = sf::Vector2f((float)mousePos.x - (float)windowPos.x, (float)mousePos.y - (float)windowPos.y);
 
 	sf::Vector2f newPos = m_SpriteBar.getPosition();
 	float clickX = relativeMousePos.x;
@@ -59,7 +59,7 @@ void CuiBar::OnClickVolumeBar(sf::RenderWindow& window, sf::Mouse& mouse,sf::Sou
 	sound.setVolume(volume);
 
 	// Update the texture rectangle to reflect the new volume level
-	sf::IntRect textureRect(0, 0, static_cast<int>(volume * 2.66f), 29); // Assuming 1% of volume corresponds to 2.66 pixels
+	sf::IntRect textureRect(0, 0, static_cast<int>(volume / 100 * 2.66), 29);
 	m_SpriteBar.setTextureRect(textureRect);
 
 	m_SpriteBar.setPosition(newPos);
@@ -89,7 +89,7 @@ void CuiBar::SetInitialValue(sf::Sound& sound, sf::Vector2f barPosition, float b
 	newPos.x = initialPos;
 
 	// Update the texture rectangle to reflect the initial volume level
-	sf::IntRect textureRect(0, 0, static_cast<int>(currentVolume / 100.0f * 2.66f), 29); // Assuming 1% of volume corresponds to 2.66 pixels
+	sf::IntRect textureRect(0, 0, static_cast<int>(currentVolume / 100 * 2.66), 29); // Assuming 1% of volume corresponds to 2.66 pixels
 	m_SpriteBar.setTextureRect(textureRect);
 
 	m_SpriteBar.setPosition(newPos);
@@ -100,7 +100,7 @@ sf::Vector2f CuiBar::RecalculateBarScale(sf::RenderWindow& window, sf::Mouse& mo
 {
 	sf::Vector2i windowPos = window.getPosition();
 	sf::Vector2i mousePos = mouse.getPosition();
-	sf::Vector2f relativeMousePos = sf::Vector2f(mousePos.x - windowPos.x, mousePos.y - windowPos.y);
+	sf::Vector2f relativeMousePos = sf::Vector2f((float)mousePos.x - (float)windowPos.x, (float)mousePos.y - (float)windowPos.y);
 
 	sf::Vector2f newPos = m_SpriteBar.getPosition();
 	float clickX = relativeMousePos.x;

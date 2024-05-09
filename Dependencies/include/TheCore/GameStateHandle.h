@@ -4,7 +4,7 @@
 class GameStateHandle
 {
 public:
-	GameStateHandle();
+	GameStateHandle() = default;
 	void test();
 };
 

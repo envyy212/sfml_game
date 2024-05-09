@@ -6,15 +6,15 @@
 #include "ResourceIdentifier.h"
 #include <list>
 
-class CSoundManager : private sf::NonCopyable
+class CSoundModule : private sf::NonCopyable
 {
 public:
-	CSoundManager();
-	~CSoundManager() = default;
+	CSoundModule();
+	~CSoundModule() = default;
 
 	void PlaySounds(SoundEffect::eSound effect);
 	void RemoveReplayedSound();
 private:
-	SoundBufferHolder m_SoundBuffers;
+	sf::SoundBuffer m_SoundBuffers;
 	std::list<sf::Sound> m_soundNameList;
 };

@@ -1,17 +1,13 @@
-#include "TextModule.h"
 #include <iostream>
-#include "MouseModule.h"
-#include "MainMenu.h"
 #include <functional>
-#include "Game.h"
+
+#include "TextModule.h"
+#include "FileLoader.h"
+
 
 TextModule::TextModule()
 	: m_FontBuffers(), m_TextVec(), m_text(), m_IsClickable()
 {
-	m_FontBuffers.load(TextProperties::TEXT_FONT_ARIAL, "fonts/arial.ttf");
-	m_FontBuffers.load(TextProperties::TEXT_FONT_FIENDISH, "fonts/Fiendish.ttf");
-	m_FontBuffers.load(TextProperties::TEXT_FONT_TUFFY, "fonts/tuffy.ttf");
-
 	m_textIndexMap = {
 		{"Play", 2},
 		{"Options", 3},
@@ -20,11 +16,16 @@ TextModule::TextModule()
 		{"Exit", 6},
 	};
 
+//	m_pSoundModule = std::make_unique<CSoundModule>();
+
 	m_IsClickable = false;
 }
 
 void TextModule::WriteText(sf::RenderWindow& window, sf::Vector2f posVec, TextProperties::eTextFont TextFormat, TextProperties::eTextType TextType, const char* TextString, TextProperties::eTextSize TextSize, float xStep, float yStep)
 {
+	TextHolder& loader = FileLoader::Instance().GetTextFontHolder();
+	m_font = loader.get(TextFormat);
+
 	if (TextType == TextProperties::TEXT_BUTTON)
 		m_IsClickable = true;
 
@@ -32,7 +33,7 @@ void TextModule::WriteText(sf::RenderWindow& window, sf::Vector2f posVec, TextPr
 	sf::Text& m_textx = m_text;
 	m_textx = m_TextVec.back();
 
-	m_text.setFont(m_FontBuffers.get(TextFormat));
+	m_text.setFont(m_font);
 
 	if (xStep > 0.0f)
 		posVec.x += xStep;
@@ -135,9 +136,8 @@ void TextModule::OnOverText(sf::RenderWindow& window, sf::Mouse mouse)
 
 void TextModule::OnClickText(sf::RenderWindow& window, sf::Mouse mouse)
 {
-	CSoundManager* pSoundMgr = new CSoundManager;
 
-	pSoundMgr->PlaySounds(SoundEffect::SOUND_MENU_CLICK);
+//	m_pSoundModule->PlaySounds(SoundEffect::SOUND_MENU_CLICK);
 	m_text.setOutlineThickness(0.85f);
 	m_text.setOutlineColor(sf::Color::Yellow);
 

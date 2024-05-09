@@ -1,12 +1,14 @@
 #pragma once
 
 #include "ResourceIdentifier.h"
+#include "ResourceHolder.h"
+
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/Graphics/Text.hpp>
-#include "ResourceHolder.h"
-#include "ResourceIdentifier.h"
-#include "SoundManager.h"
+
 #include <unordered_map>
+
+//#include "SoundModule.h"
 
 class TextModule : private sf::NonCopyable
 {
@@ -30,14 +32,14 @@ public:
 	void HandleClickEvent(sf::RenderWindow& window, sf::Mouse mouse, uint16_t& index);
 
 	void PerformTextEventByMouseAction(sf::RenderWindow& window, sf::Mouse mouse, sf::Keyboard keyboard);
-//	void FreeTextVector();
 private:
 
 	std::unordered_map<std::string, uint16_t>m_textIndexMap;
 
-	CSoundManager soundMgr;
+//	std::unique_ptr<CSoundModule> m_pSoundModule;
 
 	TextHolder m_FontBuffers;
+	sf::Font m_font;
 	std::vector<sf::Text> m_TextVec;
 	sf::Text m_text;
 
