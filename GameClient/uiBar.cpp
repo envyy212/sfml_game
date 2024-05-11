@@ -42,28 +42,35 @@ void CuiBar::OnClickVolumeBar(sf::RenderWindow& window, sf::Mouse& mouse,sf::Sou
 	float barEnd = barPosition.x + barWidth;
 
 	m_SpriteBar.setScale(sound.getVolume() / 100.0f, 1.0f);
-	if (clickX < barPosition.x)
-	{
-		newPos.x = barPosition.x;
-	}
-	else if (clickX > barEnd)
-	{
-		newPos.x = barEnd;
-	}
-	else
-	{
-		newPos.x = clickX;
-	}
 
-	float volume = (newPos.x - barPosition.x) / barWidth * 100;
-	sound.setVolume(volume);
+	sf::FloatRect barBounds = m_SpriteBar.getGlobalBounds();
 
-	// Update the texture rectangle to reflect the new volume level
-	sf::IntRect textureRect(0, 0, static_cast<int>(volume * m_Texture.getSize().x / 100), m_Texture.getSize().y);//1% of volume corresponds to 2.66 pixels
-	m_SpriteBar.setTextureRect(textureRect);
 
-	m_SpriteBar.setPosition(newPos);
-	m_SpriteBar.setScale(volume / 100.0f, 1.0f);
+	if (mouse.isButtonPressed(sf::Mouse::Button::Left))
+	{
+		if (clickX < barPosition.x)
+		{
+			newPos.x = barPosition.x;
+		}
+		else if (clickX > barEnd)
+		{
+			newPos.x = barEnd;
+		}
+		else
+		{
+			newPos.x = clickX;
+		}
+
+		float volume = (newPos.x - barPosition.x) / barWidth * 100;
+		sound.setVolume(volume);
+
+		// Update the texture rectangle to reflect the new volume level
+		sf::IntRect textureRect(0, 0, static_cast<int>(volume * m_Texture.getSize().x / 100), m_Texture.getSize().y);//1% of volume corresponds to 2.66 pixels
+		m_SpriteBar.setTextureRect(textureRect);
+
+		m_SpriteBar.setPosition(newPos);
+		m_SpriteBar.setScale(volume / 100.0f, 1.0f);
+	}
 }
 
 void CuiBar::OnOverlayBar(sf::RenderWindow& window, sf::Vector2f fPosition)

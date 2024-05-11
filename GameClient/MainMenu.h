@@ -83,8 +83,11 @@ public:
 	void BuildBackgroundText(sf::RenderWindow& window);
 	void BuildVersionText(sf::RenderWindow& window);
 
-	void SetIndex(uint16_t index) { lastSetIndex = index; }
+	inline void SetIndex(uint16_t index) { lastSetIndex = index; }
+	inline void SetLastSoundVolume(float fVolume) { m_lastSetVolume = fVolume; }
 	uint16_t GetLastSetIndex() const;
+
+	float GetLastSetVolume() const;
 
 private:
 	std::unique_ptr<TMainMenu> m_pMenu = std::make_unique<TMainMenu>();
@@ -104,6 +107,8 @@ private:
 	CBar m_MusicBar;
 
 	uint16_t lastSetIndex;
+	float m_lastSetVolume;
+
 	uint16_t lastSetSubIndex;
 
 	std::vector<std::string> m_rankingTextVec;

@@ -32,6 +32,7 @@ void CGame::Run()
 
 	while (m_pWindow->isOpen())
 	{
+		UpdateDeltaTime();
 		Update();
 		Render();
 	}
@@ -55,8 +56,10 @@ void CGame::RegisterState()
 void CGame::Render()
 {
 	m_pWindow->clear();
-	m_pMenu->MakeWindow(*m_pWindow, m_mouse, m_pSound, *m_pMusic, currentMenuIndex);
+	m_pMenu->MakeWindow(*m_pWindow, m_mouse, m_sound, *m_pMusic, currentMenuIndex);
 	currentMenuIndex = m_pMenu->GetLastSetIndex();
+	m_currentVolumeIndex = m_pSoundBar->GetVolume();
+
 	m_pWindow->display();
 }
 
@@ -81,6 +84,7 @@ void CGame::UpdateEvents()
 		else if (m_event.type == sf::Event::MouseButtonPressed)
 		{
 			m_pText->HandleClickEvent(*m_pWindow, m_mouse, currentMenuIndex); // Update the index value when a button is clicked
+			m_pSoundBar->OnClickBar(*m_pWindow, m_mouse, m_sound, 200, m_currentVolumeIndex);
 		}
 		else if (m_event.type == sf::Event::KeyPressed)
 		{
@@ -95,6 +99,11 @@ void CGame::UpdateEvents()
 		}
 	}
 	m_pSoundBar->UpdateSound(m_barPosition);
+}
+
+void CGame::UpdateDeltaTime()
+{
+	m_fDeltaTime = m_deltaTimeClock.restart().asSeconds();
 }
 
 

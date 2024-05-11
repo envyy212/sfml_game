@@ -1,14 +1,13 @@
 #pragma once
 #include "GameStateHandle.h"
 
-class GameState : public GameStateHandle
+class GameState : GameStateHandle
 {
 public:
 	GameState();
 	virtual ~GameState();
 
-	void Update();
-	void Render();
+
 private:
 };
 

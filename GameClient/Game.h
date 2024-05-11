@@ -11,8 +11,9 @@
 #include "uiBar.h"
 
 #include <SFML/Window.hpp>
-#include <SFML/Audio/Sound.hpp>
-#include <SFML/Audio/Music.hpp>
+#include <SFML/Audio.hpp>
+#include <SFML/Network.hpp>
+#include <SFML/System.hpp>
 
 #include <TheCore/GameStateHandle.h>
 
@@ -38,12 +39,16 @@ public:
 	void Render();
 	void Update();
 	void UpdateEvents();
+	void UpdateDeltaTime();
 
 	void InitWindow();
 	void InitMenu();
 
 	std::stack<GameStateHandle*> m_stackStates;
 private:
+	sf::Clock m_deltaTimeClock;
+	float m_fDeltaTime;
+
 	std::unique_ptr<CMainMenu> m_pMenu; // Explicitly specify the type here
 
 	std::unique_ptr<TextModule> m_pText;
@@ -56,7 +61,7 @@ private:
 
 	sf::Mouse m_mouse;
 	sf::Event m_event;
-	sf::Sound m_pSound;
+	sf::Sound m_sound;
 private:
 	/* window and menu */
 
@@ -65,6 +70,8 @@ private:
 
 	uint16_t m_selectedIndex;
 	uint16_t currentMenuIndex;
+
+	float m_currentVolumeIndex;
 private:
 	sf::Vector2f m_barPosition;
 };

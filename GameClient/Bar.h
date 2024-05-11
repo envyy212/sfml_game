@@ -13,12 +13,12 @@ public:
 
 	void OnFullBar(sf::RenderWindow& window, sf::Sound& sound, float& volume);
 	void OnDefaultBar(sf::RenderWindow& window);
-	void OnClickBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, float barWidth);
+	void OnClickBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, float barWidth, float& currentVolumeIndex);
 	void RenderVolumeBar(sf::RenderWindow& window, sf::Mouse& mouse, sf::Sound& sound, float& volume, bool isFullBar, sf::Vector2f fPosition);
 	void SetPosition(sf::Vector2f fPosition);
 
-	float CalculateVolume(sf::Vector2f clickPosition, sf::Vector2f barPosition, float barWidth);
-
+	void SetVolume(float fVolume);
+	inline float GetVolume() const { return m_fVolume; }
 
 public:
 	inline sf::Vector2f GetPosition() const { return m_fPosition; }
@@ -38,5 +38,7 @@ private:
 private:
 	sf::Vector2f m_fPosition;
 	sf::Sound m_Sound;
+
+	float m_fVolume;
 };
 

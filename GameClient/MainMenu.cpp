@@ -127,6 +127,7 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window, sf::Mouse& mouse, sf::So
     CButton button;
 
     uint16_t mainMenuIndex = GetLastSetIndex();
+	float soundIndex = GetLastSetVolume();
 
     for (int i = 0; i < m_optionsTextVec.size(); i++)
     {
@@ -152,24 +153,19 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window, sf::Mouse& mouse, sf::So
 	float volume = float(sound.getVolume());
 	std::cout << "BuildSettings menu " << volume << "\n";
 	volumeBar.RenderVolumeBar(window, mouse, sound, volume, true, barPoss);
-
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-	{
-		volumeBar.OnClickBar(window, mouse, sound, 200);
-	}
+	volumeBar.OnClickBar(window, mouse, sound, 200, soundIndex);
 
 	CBar musicBar;
+
 	float musicVolume = float(music.getVolume());
 	sf::Vector2f muscibarPoss = sf::Vector2f(window.getSize().x / 1.7f, window.getSize().y / 2.7f);
 	musicBar.RenderVolumeBar(window, mouse, sound, musicVolume, true, muscibarPoss);
 	std::cout << musicVolume;
 
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-	{
-		musicBar.OnClickBar(window, mouse, sound, 200);
-	}
+	musicBar.OnClickBar(window, mouse, sound, 200, soundIndex);
 
     SetIndex(mainMenuIndex);
+	SetLastSoundVolume(soundIndex);
 }
 
 void CMainMenu::BuildRanking(sf::RenderWindow& window)
@@ -341,10 +337,18 @@ void CMainMenu::GetDisplayedTimeHandle()
 
 uint16_t CMainMenu::GetLastSetIndex() const
 {
-
 	if (!lastSetIndex)
 		return 1;
+
 	return lastSetIndex;
+}
+
+float CMainMenu::GetLastSetVolume() const
+{
+	if (!m_lastSetVolume)
+		return 50;
+
+	return m_lastSetVolume;
 }
 
 /* move menu with arrows related */
