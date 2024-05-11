@@ -1,7 +1,4 @@
 #pragma once
-#include <map>
-#include <windows.h>
-#include <chrono>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -12,6 +9,10 @@
 #include "SoundModule.h"
 #include "TextModule.h"
 #include "Bar.h"
+
+#include <map>
+#include <windows.h>
+#include <chrono>
 
 enum ePageState
 {

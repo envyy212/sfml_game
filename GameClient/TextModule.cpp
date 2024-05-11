@@ -16,7 +16,7 @@ TextModule::TextModule()
 		{"Exit", 6},
 	};
 
-//	m_pSoundModule = std::make_unique<CSoundModule>();
+	m_pSoundModule = std::make_unique<CSoundModule>();
 
 	m_IsClickable = false;
 }

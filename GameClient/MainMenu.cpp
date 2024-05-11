@@ -1,12 +1,13 @@
-#include <iomanip>
-#include <ctime>
-#include <sstream>
-
 #include "MainMenu.h"
+
 #include "Log.h"
 #include "MouseModule.h"
 #include "Button.h"
 #include "uiBar.h"
+
+#include <iomanip>
+#include <ctime>
+#include <sstream>
 
  
 CMainMenu::CMainMenu(float Width, float Height)
@@ -154,7 +155,7 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window, sf::Mouse& mouse, sf::So
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
-		volumeBar.OnClickBar(window, mouse, sound, barPoss, 200);
+		volumeBar.OnClickBar(window, mouse, sound, 200);
 	}
 
 	CBar musicBar;
@@ -165,7 +166,7 @@ void CMainMenu::BuildSettings(sf::RenderWindow& window, sf::Mouse& mouse, sf::So
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
-		musicBar.OnClickBar(window, mouse, sound, muscibarPoss, 200);
+		musicBar.OnClickBar(window, mouse, sound, 200);
 	}
 
     SetIndex(mainMenuIndex);

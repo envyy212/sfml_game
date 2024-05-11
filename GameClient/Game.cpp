@@ -1,4 +1,5 @@
 #include "Game.h"
+
 #include "SettingsModule.h"
 #include "FileLoader.h"
 
@@ -11,11 +12,12 @@ CGame::CGame()
 	InitMenu();
 
 	m_pMusic = std::make_unique<sf::Music>();
-//	m_pText = std::make_unique<TextModule>();
+	m_pText = std::make_unique<TextModule>();
+	m_pSoundBar = std::make_unique<CBar>();
 
 	if (!m_pMusic->openFromFile("audio/BGM.flac"))
 		return;
-	m_pMusic->setVolume(80);
+	m_pMusic->setVolume(1);
 	m_pMusic->play();
 }
 
@@ -42,7 +44,7 @@ void CGame::InitMenu()
 
 void CGame::InitWindow()
 {
-	m_pWindow = std::make_unique<sf::RenderWindow>(sf::VideoMode(1920, 1080), "Survivor. v0.0.1", sf::Style::Fullscreen);
+	m_pWindow = std::make_unique<sf::RenderWindow>(sf::VideoMode(1920, 1080), "Survivor. v0.0.1", sf::Style::Default);
 }
 
 void CGame::RegisterState()
@@ -67,6 +69,8 @@ void CGame::UpdateEvents()
 {
 	GameStateHandle state;
 	state.test();
+	m_barPosition = m_pSoundBar->GetPosition();
+	std::cout << "Bar position" << m_barPosition.x << " " << m_barPosition.y <<"\n";
 
 	while (m_pWindow->pollEvent(m_event))
 	{
@@ -76,7 +80,7 @@ void CGame::UpdateEvents()
 		}
 		else if (m_event.type == sf::Event::MouseButtonPressed)
 		{
-//			m_pText->HandleClickEvent(*m_pWindow, m_mouse, currentMenuIndex); // Update the index value when a button is clicked
+			m_pText->HandleClickEvent(*m_pWindow, m_mouse, currentMenuIndex); // Update the index value when a button is clicked
 		}
 		else if (m_event.type == sf::Event::KeyPressed)
 		{
@@ -90,6 +94,7 @@ void CGame::UpdateEvents()
 			}
 		}
 	}
+	m_pSoundBar->UpdateSound(m_barPosition);
 }
 
 

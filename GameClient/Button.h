@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
+
 #include "ResourceIdentifier.h"
 #include "FileLoader.h"
 

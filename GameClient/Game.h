@@ -7,7 +7,8 @@
 
 #include "MainMenu.h"
 #include "SoundModule.h"
-//#include "TextModule.h"
+#include "TextModule.h"
+#include "uiBar.h"
 
 #include <SFML/Window.hpp>
 #include <SFML/Audio/Sound.hpp>
@@ -45,9 +46,10 @@ public:
 private:
 	std::unique_ptr<CMainMenu> m_pMenu; // Explicitly specify the type here
 
-//	std::unique_ptr<TextModule> m_pText;
+	std::unique_ptr<TextModule> m_pText;
 	std::unique_ptr<sf::RenderWindow> m_pWindow;
 	std::unique_ptr<sf::Music> m_pMusic;
+	std::unique_ptr<CBar> m_pSoundBar;
 
 	/* sf:: */
 
@@ -63,4 +65,6 @@ private:
 
 	uint16_t m_selectedIndex;
 	uint16_t currentMenuIndex;
+private:
+	sf::Vector2f m_barPosition;
 };

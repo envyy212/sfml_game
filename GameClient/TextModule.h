@@ -6,9 +6,10 @@
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/Graphics/Text.hpp>
 
+#include "SoundModule.h"
+
 #include <unordered_map>
 
-//#include "SoundModule.h"
 
 class TextModule : private sf::NonCopyable
 {
@@ -36,7 +37,7 @@ private:
 
 	std::unordered_map<std::string, uint16_t>m_textIndexMap;
 
-//	std::unique_ptr<CSoundModule> m_pSoundModule;
+	std::unique_ptr<CSoundModule> m_pSoundModule;
 
 	TextHolder m_FontBuffers;
 	sf::Font m_font;
