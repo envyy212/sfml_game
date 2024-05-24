@@ -23,6 +23,7 @@ public:
 	void LoadMenuBars();
 	void LoadMenuFonts();
 	void LoadMenuSounds();
+//	void LoadMusic();
 	void RegisterLoadingMenuProccess();
 
 
@@ -31,11 +32,10 @@ public:
 	TextHolder& GetTextFontHolder();
 	SoundBufferHolder& GetSoundBufferHolder();
 private:
-	TextureHolder m_TextureHolder;
-	TextureBarHolder m_TextureBarHolder;
-	TextHolder m_TextFontHolder;
-	SoundBufferHolder m_SoundBufferHolder;
-	
+	TextureHolder m_textureHolder;
+	TextureBarHolder m_textureBarHolder;
+	TextHolder m_textFontHolder;
+	SoundBufferHolder m_soundBufferHolder;	
 	//	std::unique_ptr<TextureHolder> m_TextureHolder = std::make_unique<TextureHolder>();
 //	std::unique_ptr<TextureBarHolder> m_TextureBarHolder = std::make_unique<TextureBarHolder>();
 //	std::unique_ptr<TextHolder> m_TextFontHolder = std::make_unique<TextHolder>();

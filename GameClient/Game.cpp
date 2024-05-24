@@ -17,8 +17,10 @@ CGame::CGame()
 
 	if (!m_pMusic->openFromFile("audio/BGM.flac"))
 		return;
-	m_pMusic->setVolume(1);
+	m_pMusic->setVolume(10);
 	m_pMusic->play();
+
+	sf::Sound sound;
 }
 
 CGame::~CGame()
@@ -45,7 +47,7 @@ void CGame::InitMenu()
 
 void CGame::InitWindow()
 {
-	m_pWindow = std::make_unique<sf::RenderWindow>(sf::VideoMode(1920, 1080), "Survivor. v0.0.1", sf::Style::Default);
+	m_pWindow = std::make_unique<sf::RenderWindow>(sf::VideoMode(1920, 1080), "Survivor. v0.0.1", sf::Style::Fullscreen);
 }
 
 void CGame::RegisterState()

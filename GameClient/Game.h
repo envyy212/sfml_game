@@ -1,22 +1,14 @@
 #pragma once
-
-#include <iostream>
-#include <stack>
-#include <vector>
-#include <unordered_map>
+#include "../TheCore/pch.h"
 
 #include "MainMenu.h"
 #include "SoundModule.h"
 #include "TextModule.h"
 #include "uiBar.h"
 
-#include <SFML/Window.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Network.hpp>
-#include <SFML/System.hpp>
-
 #include <TheCore/GameStateHandle.h>
 
+#include <stack>
 
 class CGame
 {

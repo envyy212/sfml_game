@@ -1,6 +1,8 @@
 #pragma once
 #include "ResourceHolder.h"
 #include "ResourceHolderInc.h"
+
+#include <SFML/Audio/Music.hpp>
 #include <SFML/Audio/Sound.hpp>
 #include <SFML/Graphics.hpp>
 
@@ -11,6 +13,14 @@ namespace SoundEffect
 		SOUND_CLOCK_TICK,
 		SOUND_MENU_CLICK,
 		SOUND_TIME_BOOM
+	};
+}
+
+namespace MusicProperties
+{
+	enum eMusic
+	{
+		MUSIC_MENU,
 	};
 }
 
@@ -72,5 +82,6 @@ class ResourceHolder;
 typedef ResourceHolder<sf::Font, TextProperties::eTextFont> TextHolder;
 typedef ResourceHolder<sf::SoundBuffer, SoundEffect::eSound> SoundBufferHolder;
 typedef ResourceHolder<sf::Texture, TextureProperties::eTexturesButtonBack> TextureHolder;
-
 typedef ResourceHolder<sf::Texture, TextureProperties::eTextureBar> TextureBarHolder;
+
+typedef ResourceHolder<sf::Music, MusicProperties::eMusic> MusicHolder;

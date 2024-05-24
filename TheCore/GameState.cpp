@@ -10,13 +10,3 @@ GameState::~GameState()
 {
 
 }
-
-void GameState::Update()
-{
-
-}
-
-void GameState::Render()
-{
-
-}

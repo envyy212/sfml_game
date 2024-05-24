@@ -1,6 +1,7 @@
 #pragma once
+#include "../TheCore/pch.h"
+
 #include <iostream>
-#include <unordered_map>
 
 enum class eLogType
 {

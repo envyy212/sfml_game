@@ -1,5 +1,4 @@
-﻿  pch.cpp
+﻿  GameState.cpp
   GameStateHandle.cpp
-  TheCore.cpp
-  Generating Code...
-  TheCore.vcxproj -> C:\Users\Admin\source\repos\learning\sfml_snake\x64\Debug\TheCore.lib
+  Generování kódu...
+  TheCore.vcxproj -> C:\Users\danie\Documents\GitHub\sfml_game\x64\Debug\TheCore.lib

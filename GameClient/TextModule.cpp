@@ -136,8 +136,7 @@ void TextModule::OnOverText(sf::RenderWindow& window, sf::Mouse mouse)
 
 void TextModule::OnClickText(sf::RenderWindow& window, sf::Mouse mouse)
 {
-
-//	m_pSoundModule->PlaySounds(SoundEffect::SOUND_MENU_CLICK);
+	m_pSoundModule->PlaySounds(SoundEffect::SOUND_MENU_CLICK);
 	m_text.setOutlineThickness(0.85f);
 	m_text.setOutlineColor(sf::Color::Yellow);
 

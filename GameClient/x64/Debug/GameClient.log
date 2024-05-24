@@ -1,3 +1,12 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Game.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: Zprostředkující adresář (x64\Debug\) obsahuje soubory sdílené z jiného projektu (Game.vcxproj). To může způsobit nesprávné chování při čištění a opětovném sestavení.
+  Bar.cpp
+  Game.cpp
   uiBar.cpp
-  GameClient.vcxproj -> C:\Users\Admin\source\repos\learning\sfml_game\x64\Debug\GameClient.exe
+  Log.cpp
+  main.cpp
+  MainMenu.cpp
+  SettingsModule.cpp
+  Generování kódu...
+TheCore.lib(GameStateHandle.obj) : warning LNK4204: V souboru  chybí ladicí informace pro odkazující modul. Objekt se propojí, jako by nebyly dostupné žádné ladicí informace.
+TheCore.lib(pch.obj) : warning LNK4204: V souboru  chybí ladicí informace pro odkazující modul. Objekt se propojí, jako by nebyly dostupné žádné ladicí informace.
+  GameClient.vcxproj -> C:\Users\danie\Documents\GitHub\sfml_game\x64\Debug\GameClient.exe

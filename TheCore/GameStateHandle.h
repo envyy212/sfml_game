@@ -1,6 +1,11 @@
 #pragma once
 #include "pch.h"
 
+#include "SFML/Window.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+#include "SFML/System.hpp"
+
 class GameStateHandle
 {
 public:

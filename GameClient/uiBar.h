@@ -1,7 +1,9 @@
 #pragma once
 #include "SFML/Audio/Music.hpp"
-#include "FileLoader.h"
 #include "SFML/Graphics/Sprite.hpp"
+
+#include "FileLoader.h"
+#include "Log.h"
 #include "ResourceHolder.h"
 
 class CuiBar
